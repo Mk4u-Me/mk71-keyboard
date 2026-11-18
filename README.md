@@ -7,7 +7,7 @@ keypad, voice dictation and optional AI proofreading, in one small app.
 ![Platform](https://img.shields.io/badge/platform-Windows%207%20%7C%208.1%20%7C%2010%20%7C%2011-blue)
 ![Arch](https://img.shields.io/badge/build-x64%20%26%20x86-lightgrey)
 ![Free](https://img.shields.io/badge/price-free-brightgreen)
-![Version](https://img.shields.io/badge/version-1.0.2-brightgreen)
+![Version](https://img.shields.io/badge/version-1.0.3-brightgreen)
 
 **বাংলা কিবোর্ড** — Avro phonetic লেআউট, নিচে সংখ্যা ও যুক্তাক্ষর
 ![MK-71 Bangla keyboard](docs/screenshots/keyboard-bangla.png)
@@ -29,10 +29,11 @@ keypad, voice dictation and optional AI proofreading, in one small app.
 ![Top bar](docs/screenshots/top-bar.png)
 ![Settings](docs/screenshots/settings.png)
 
-## ১.০.২-এ নতুন
+## ১.০.৩-এ নতুন
 
-- **Colour theme ফিরে এসেছে** — Appearance-এ **Dark / White** ড্রপডাউন আবার আছে
-  (1.0.1-এ ভুলবশত লুকিয়ে গিয়েছিল)।
+- **AI tools এখন Settings → AI-এর ভেতরে** — endpoint/key যেখানে দেওয়া হয়, সেখান থেকেই
+  **Open AI tools…** বাটনে প্রুফরিড, সমার্থক শব্দ ও অনুবাদ।
+- **Colour theme ফিরে এসেছে** — Appearance-এ **Dark / White** ড্রপডাউন আবার আছে।
 - Window opacity, Font, Font size ও Key height-এর পাশে বাংলা ব্যাখ্যা; অপাসিটি শতকরা।
 - টপ বার ডিফল্ট ৬১% ট্রান্সপারেন্সি; দুই থিমে গ্লাস কিবোর্ড, সলিড কী-ক্যাপ।
 - **“How to set API key”** গাইড ও ২০ পৃষ্ঠার বাংলা ইউজার গাইড PDF।
