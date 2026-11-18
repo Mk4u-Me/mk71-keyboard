@@ -6,7 +6,7 @@ on-screen keypad, voice dictation and optional AI proofreading, in one small app
 
 ![Platform](https://img.shields.io/badge/platform-Windows%207%20%7C%208.1%20%7C%2010%20%7C%2011-blue)
 ![Architecture](https://img.shields.io/badge/build-x64%20%26%20x86-lightgrey)
-![Version](https://img.shields.io/badge/version-1.0.0-brightgreen)
+![Version](https://img.shields.io/badge/version-1.0.1-brightgreen)
 ![License](https://img.shields.io/badge/license-GPLv3-blue)
 
 ![MK-71 keyboard](docs/screenshots/keyboard-bangla.png)
@@ -91,11 +91,13 @@ Settings → **Speech to Text**-এ **“How to set API key”** বাটন �
 - অডিও কেবল আপনি যে সার্ভিস বেছেছেন সেখানে যায়; অন্য কোথাও নয়।
 - সব সেটিংস আর API key থাকে `data/` ফোল্ডারে, আপনার নিজের মেশিনে।
 
-## ১.০.০-এ নতুন
+## ১.০.১-এ নতুন
 
-- সম্পূর্ণ **বাংলা ইউজার গাইড PDF**, প্রতিটি বিল্ডের সাথে।
+- Appearance-এ **Window opacity, Font, Font size ও Key height**-এর পাশে বাংলা ব্যাখ্যা —
+  কী বদলাবে তা টুলটিপ ছাড়াই বোঝা যায়; অপাসিটি শতকরায় দেখা যায়।
 - **“How to set API key”** — পাঁচ সার্ভিস ও Gemini-র key তৈরির ধাপ, লিংকসহ।
-- হোয়াইট থিমেও ট্রান্সপারেন্ট (গ্লাস) কিবোর্ড প্যানেল; উইন্ডো অপাসিটি শতকরায়।
+- হোয়াইট থিমেও ট্রান্সপারেন্ট (গ্লাস) কিবোর্ড প্যানেল; টপ বার ডিফল্ট ৬১% ট্রান্সপারেন্সি।
+- সম্পূর্ণ **বাংলা ইউজার গাইড PDF** (২০ পৃষ্ঠা), প্রতিটি বিল্ডের সাথে।
 - সব ফিক্সের তালিকা → [CHANGELOG.md](CHANGELOG.md)
 
 ## লাইসেন্স

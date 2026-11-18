@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.0.1 — 2026-11-18
+
+### Appearance
+- Window opacity, Font, Font size and Key height now carry a plain Bangla line beside them, so what each one changes is readable without a tooltip.
+- Window opacity shows its exact percentage next to the slider and explains what raising or lowering it does.
+
+### Speech and AI
+- New **How to set API key** button in Speech to Text: written steps and clickable site links for Google Cloud, Groq, OpenAI, Deepgram, Sarvam AI and Gemini.
+
+### Look and feel
+- The white theme now paints the same 84% glass panels as the dark one; key caps stay solid.
+- The top bar opens at 61% transparency by default.
+
+### Documentation
+- A 20-page Bangla user guide ships next to the executable in every build.
+
 ## 1.0.0 — first public build
 
 ### Keyboard
