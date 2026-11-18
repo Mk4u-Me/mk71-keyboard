@@ -1,0 +1,176 @@
+MK-71 Keyboard 1.0.0  —  All in one keyboard
+Windows 7 SP1, 8.1, 10 and 11 · personal use · no activation or account
+(features follow the Windows version: rounded corners need desktop
+ composition, which Windows 7 Basic and some remote sessions do not have)
+
+Two downloads are published:
+  • Windows_x64 — Windows 7 SP1 or newer, 64-bit
+  • Windows_x32 — Windows 7 SP1 or newer, 32-bit
+Use the x32 build only on a 32-bit Windows; it is slower and its offline
+speech models are the same, so prefer x64 whenever Windows is 64-bit.
+
+Windows 7/8.1 need the Microsoft Visual C++ 2015-2019 runtime and the
+Universal C Runtime update (KB2999226) for the Qt and speech DLLs; Windows
+Update normally installs both. Without them the program does not start.
+
+====================================================================
+1. INSTALLER
+====================================================================
+Run "MK-71 Keyboard Setup.exe" and press Install.
+  • Installs for the current user (no administrator password needed) to
+    %LOCALAPPDATA%\Programs\MK-71 Keyboard
+  • Creates Start Menu and optional desktop shortcuts
+  • Optional "Start with Windows"
+  • Remove it later from Settings, the Start Menu, or Windows Apps.
+Your words and settings are stored in
+%LOCALAPPDATA%\MK-71 Keyboard and are kept if you choose
+"Remove, keep my data".
+
+====================================================================
+2. PORTABLE
+====================================================================
+Open the "MK-71 Keyboard Portable" folder and run
+"MK-71 Keyboard.exe". Nothing is installed.
+The folder contains portable.flag, so settings, words and history are
+written to the "data" subfolder beside the program. Copy the whole
+folder to a USB drive to carry it with you.
+
+====================================================================
+3. FIRST USE
+====================================================================
+• MK-71 starts as a slim top bar (mic, language, layout, settings, menu).
+  Drag it to move it; the tray icon keeps it reachable.
+• The on-screen keyboard is optional and starts CLOSED. Open or close it
+  from the menu: Typing Mode > On-screen keyboard, or double-click the bar.
+• The language shown on the bar is what your physical keyboard does. In
+  বাংলা every key you type is transliterated into Bangla in Notepad, Word,
+  WhatsApp, browsers and most other programs. In English no keyboard hook
+  exists at all. The mode is remembered between sessions.
+• Ctrl+Shift+L or Ctrl+Alt+K switches Bangla / English, and Ctrl+Alt+X stops
+  Bangla typing immediately. Control, Alt, Windows and function keys always
+  pass through untouched, and MK-71 never captures its own windows.
+• The on-screen keyboard works in both modes: its keys type into whichever
+  application has the focus.
+• Ctrl+Alt+O shows or hides the keyboard at any time.
+• Ctrl+Shift+E opens the Encoding Converter.
+• 🎙 Voice types by voice: click into the text box you want to fill, click
+  the mic (or press Ctrl+Alt+V anywhere), speak, then pause — the text is
+  pasted into that application, so Word, WhatsApp and browser search bars
+  all receive it, and your clipboard is restored afterwards. Press Stop to
+  finish early. Recognition follows the bar: বাংলা listens for Bangla,
+  English for English. Voice typing is the one online feature; everything
+  else works offline.
+• Settings > Speech to Text has a live microphone test, the input device,
+  language, silence timeout and microphone threshold.
+
+====================================================================
+4. LAYOUTS
+====================================================================
+Bangla: Avro phonetic (default), Khipro, Banglish, National (Jatiya),
+Bijoy Bayanno, Probhat, Inscript (Indian), Munir Optima, Unibijoy.
+English: standard QWERTY.
+Edit/Build keyboard layout (tray menu) lets you change any mapping and
+save it as your own layout.
+
+Phonetic examples: amar -> আমার, tumi -> তুমি, bangla -> বাংলা,
+dorkar -> দরকার, kkhoma -> ক্ষমা. Digits become ০-৯. Use \. for দাঁড়ি,
+\$ for ৳ and \^ for ঁ.
+
+====================================================================
+5. ONLINE FEATURES AND KEYS (optional)
+====================================================================
+• Voice typing needs internet. Pick the recognising service under Settings
+  > Speech to Text:
+    – Google Web Speech — free, no key, weakest Bangla (the default).
+    – Google Cloud Speech-to-Text — create a Google Cloud API key with the
+      Speech-to-Text API enabled, paste it in Settings. Uses the latest_long
+      model with automatic punctuation; much better Bangla.
+    – Whisper / OpenAI-compatible — endpoint plus key, for example Groq
+      (free tier, model whisper-large-v3-turbo) at
+      https://api.groq.com/openai/v1, or OpenAI (gpt-4o-transcribe) at
+      https://api.openai.com/v1. Best Bangla quality; a local
+      faster-whisper server works too, without a key.
+  If the chosen service fails or the key is rejected, MK-71 falls back to the
+  free endpoint so dictation still produces text. Keys are stored only in your
+  local database.
+• AI tools (proofreading, synonyms, antonyms, translation) stay disabled
+  until you add an OpenAI-compatible endpoint and key in Settings > AI.
+  Proofread also works fully offline with the local engine.
+Keys are stored only in your local database and are never written to
+logs or bundled into the executable.
+
+====================================================================
+6. IF WINDOWS SHOWS A WARNING
+====================================================================
+MK-71 is not code-signed, and it does three things antivirus
+heuristics watch for: it installs a global keyboard hook, it types text
+into other programs, and it unpacks itself when the installer runs. Some
+scanners therefore label the exe "unsafe" or "behaves like a backdoor"
+even though there is no malicious code. Signed builds need a paid
+code-signing certificate; this build has none.
+
+What to do on another PC:
+  • Prefer the portable folder: copy the whole "MK-71 Keyboard Portable"
+folder (or a zip of it) and run "MK-71 Keyboard.exe". No installer, so
+nothing self-extracts and Defender is far less likely to complain.
+  • If SmartScreen says "Windows protected your PC", press "More info"
+then "Run anyway".
+  • If Defender removes the file, open Windows Security > Virus & threat
+protection > Protection history, find the item and choose "Allow on
+device"; or add the folder under "Manage settings" > Exclusions.
+  • Report the false positive to Microsoft (free):
+https://www.microsoft.com/en-us/wdsi/filesubmission (choose "Software
+developer" and attach the exe). Re-scan the exact file you shipped at
+virustotal.com to see the vendor list change.
+
+A code-signing certificate (OV or EV) is the only permanent fix; with it
+SmartScreen shows the publisher name instead of "Unknown publisher".
+
+====================================================================
+7. DATA, BACKUP AND PORTABILITY
+====================================================================
+Settings, personal words, sentence history, snippets and the AI cache
+live in one SQLite database (mk71.db).
+Words & data -> Backup database / Restore / Export / Import.
+The installed build uses %LOCALAPPDATA%\MK-71 Keyboard; the portable
+build uses its own data folder.
+
+====================================================================
+8. FEATURES
+====================================================================
+• Nine Bangla layouts plus English, with live transliteration
+• 23 encoding maps (ANSI/Bijoy, Banglish, calligraphy) and a converter
+• Suggestions from a personal dictionary and 137k Bangla / 407k English
+  word list; emoji, symbol, number, date and time suggestions
+• Physical typing drives the suggestions: type ``prodhan`` and the chips
+  offer প্রধান / প্রধানত / প্রধানমন্ত্রী, and a small candidate list appears
+  beside the text caret in the focused app (click one to replace the word;
+  switch it off under Settings > Features)
+• Abbreviations expand to their full form: atm, btw, fyi, idk, tbh, asap,
+  ty, thx, plz, omw, brb, ttyl, lmk, hbd and many more; email shortcuts
+  (atgmail -> @gmail.com) and symbol shortcuts ((c), (r), (tm), ->, <3)
+• Remembers the last 100 words you typed: with an empty word the bar and the
+  candidate list offer them first, before older sentences
+• Spell check: a mistyped English word offers the nearest real word
+  (recieve -> receive), and short forms expand (atm -> At the moment,
+  idk -> I don't know). Both can be switched off in Settings.
+• Calculator: type 12+5*2 and the suggestion row offers 22 (Bangla digits
+  in Bangla mode); supports + - * / % ^ and brackets
+• Word manager, history, snippets, import/export, backup/restore
+• Voice typing (bn-BD default) with automatic stop on silence and a live
+  microphone test; optional AI proofreading; online/offline status
+• Green/gold theme, adjustable opacity, font and key size
+• Tray menu, global shortcuts, start with Windows
+• No activation, licence key, subscription or account
+
+====================================================================
+9. KNOWN LIMITATIONS
+====================================================================
+• Typing capture assumes a US keyboard layout for physical keys.
+• Ctrl+Right-click word selection from the reference is not included.
+• Voice typing and AI need internet; the local proofreader is basic.
+• If voice typing inserts nothing, check Windows microphone privacy
+  (Settings > Speech to Text > Windows microphone settings) and run the
+  microphone test there.
+• The phonetic engine follows the shipped rule tables, so a few rare
+  conjuncts depend on how you type them (kkh, tth, ShT, ...).
