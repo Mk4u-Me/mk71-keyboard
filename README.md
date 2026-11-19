@@ -26,8 +26,25 @@ keypad, voice dictation and optional AI proofreading, in one small app.
 - **AI প্রুফরিডিং (ঐচ্ছিক)** — নিজের endpoint/key দিলে বানান-যতিচিহ্ন ঠিক, সমার্থক শব্দ, অনুবাদ।
 - **অফলাইনে কাজ করে** — ইন্টারনেট ছাড়া টাইপিং, কনভার্টার, লোকাল প্রুফরিড সব চলে; কিছুই ট্র্যাক করে না।
 
-![Top bar](docs/screenshots/top-bar.png)
-![Settings](docs/screenshots/settings.png)
+### বিজয় ৫২, অভ্র ও কণ্ঠ — সব ফিচার এক অ্যাপে
+
+বাংলা লেখার জন্য যে সফটওয়্যারগুলো আলাদা করে ইনস্টল করতে হতো, তার কাজগুলো এখন
+MK-71-এ এক জায়গাতেই আছে — **বিজয় ৫২, অভ্র আর কণ্ঠ-এর ফিচারগুলো সবই আমাদের
+অ্যাপ্লিকেশনের ভেতরে**, আলাদা কিছু ইনস্টল বা সেটআপ ছাড়াই।
+
+| সফটওয়্যার | তার মূল কাজ | MK-71-এ কোথায় |
+|---|---|---|
+| **অভ্র (Avro)** | ফোনেটিক টাইপিং, যুক্তাক্ষর, অন্য অ্যাপে বাংলা লেখা | বাংলা Layouts → **Avro phonetic (Custom)** ও **Banglish**; Ctrl+Alt+K দিয়ে যেকোনো অ্যাপে |
+| **বিজয় ৫২** | বিজয় বায়ান্নো লেআউট, ANSI/বিজয় এনকোডিং, পুরোনো লেখা | **Bijoy Bayanno (Custom)**; **Bangla Encodings** আর **Encoding Converter** (ANSI / Bijoy / Probhat ↔ Unicode) |
+| **কণ্ঠ** | ইউনিকোড বাংলা লেখা, একাধিক ফিক্সড লেআউট, লেআউট বদল ও নিজের লেআউট বানানো | **Unibijoy (Custom)**, Inscript, Khipro, Munir Optima, National (Jatiya), Probhat; **Edit/Build keyboard layout** ও **Import** |
+| **সবার সাধারণ কাজ** | সাজেশন, অটো-কারেকশন, বানান পরীক্ষা, সংখ্যা/তারিখ, ইমোজি, ইংরেজি কিবোর্ড | সবই আছে — General সেটিংস থেকে আলাদা আলাদা চালু/বন্ধ করা যায় |
+
+এর সাথে যা ওদের কোনোটিতে নেই: **ভয়েস টাইপিং**, ঐচ্ছিক **AI প্রুফরিডিং**, টপ বার ও
+সাজেশন বার, আর ২০ পৃষ্ঠার বাংলা ইউজার গাইড — সব একই অ্যাপে।
+
+**টপ বার ও অ্যাপ মেনু** — বাংলা Layouts-এ Avro, Banglish, Bijoy Bayanno, Inscript, Khipro,
+Munir Optima, National, Probhat, Unibijoy আর নিজের লেআউট Import
+![MK-71 top bar, app menu and Bangla layouts](docs/screenshots/layouts-menu.png)
 
 ## ১.০.৪-এ নতুন
 
