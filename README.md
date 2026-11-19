@@ -7,7 +7,7 @@ keypad, voice dictation and optional AI proofreading, in one small app.
 ![Platform](https://img.shields.io/badge/platform-Windows%207%20%7C%208.1%20%7C%2010%20%7C%2011-blue)
 ![Arch](https://img.shields.io/badge/build-x64%20%26%20x86-lightgrey)
 ![Free](https://img.shields.io/badge/price-free-brightgreen)
-![Version](https://img.shields.io/badge/version-1.0.4-brightgreen)
+![Version](https://img.shields.io/badge/version-1.0.5-brightgreen)
 
 **বাংলা কিবোর্ড** — Avro phonetic লেআউট, নিচে সংখ্যা ও যুক্তাক্ষর
 ![MK-71 Bangla keyboard](docs/screenshots/keyboard-bangla.png)
@@ -45,6 +45,12 @@ MK-71-এ এক জায়গাতেই আছে — **বিজয় ৫
 **টপ বার ও অ্যাপ মেনু** — বাংলা Layouts-এ Avro, Banglish, Bijoy Bayanno, Inscript, Khipro,
 Munir Optima, National, Probhat, Unibijoy আর নিজের লেআউট Import
 ![MK-71 top bar, app menu and Bangla layouts](docs/screenshots/layouts-menu.png)
+
+## ১.০.৫-এ নতুন
+
+- **ডিফল্ট থিম এখন White** — নতুন ইনস্টল বা পোর্টেবল কপি প্রথমবার খুললে হালকা থিমেই
+  খুলবে; Dark চাইলে Appearance → Colour theme থেকে বদলে নিন।
+- আগের (১.০.৪) পরিবর্তনগুলোও আছে — নিচে দেখুন।
 
 ## ১.০.৪-এ নতুন
 
