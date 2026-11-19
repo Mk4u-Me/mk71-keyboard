@@ -9,6 +9,9 @@ keypad, voice dictation and optional AI proofreading, in one small app.
 ![Free](https://img.shields.io/badge/price-free-brightgreen)
 ![Version](https://img.shields.io/badge/version-1.0.5-brightgreen)
 
+**ওয়েবসাইট:** [mk4u-me.github.io/mk71-keyboard](https://mk4u-me.github.io/mk71-keyboard/)
+&nbsp;·&nbsp; **খোঁজার নাম:** MK-71 Keyboard (Mk71 Keyboard, mk71 keyboard, বাংলা কিবোর্ড)
+
 **বাংলা কিবোর্ড** — Avro phonetic লেআউট, নিচে সংখ্যা ও যুক্তাক্ষর
 ![MK-71 Bangla keyboard](docs/screenshots/keyboard-bangla.png)
 

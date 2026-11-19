@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mk4u-me.github.io/mk71-keyboard/sitemap.xml
