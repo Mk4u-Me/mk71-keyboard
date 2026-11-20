@@ -9,6 +9,8 @@
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="google-site-verification" content="6675398ffe9e28ad">
 <link rel="canonical" href="https://mk4u-me.github.io/mk71-keyboard/">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MK-71 Keyboard — বাংলা ও English কিবোর্ড (Windows)">
 <meta name="twitter:description" content="Windows-এর জন্য ফ্রি বাংলা কিবোর্ড: Avro/বিজয় লেআউট, এনকোডিং কনভার্টার, ভয়েস টাইপিং।">
@@ -49,7 +51,7 @@
     {
       "@type": "Question",
       "name": "MK-71 Keyboard কি ফ্রি?",
-      "acceptedAnswer": { "@type": "Answer", "text": "হ্যাঁ, সম্পূর্ণ ফ্রি। অ্যাক্টিভেশন, লাইসেন্স কি বা সাবস্ক্রিপশন নেই।" }
+      "acceptedAnswer": { "@type": "Answer", "text": "হ্যাঁ, সম্পূর্ণ ফ্রি ও ওপেন সোর্স (GNU GPL v3.0)। অ্যাক্টিভেশন, লাইসেন্স কি বা সাবস্ক্রিপশন নেই।" }
     },
     {
       "@type": "Question",
@@ -60,104 +62,280 @@
       "@type": "Question",
       "name": "ইনস্টল করতে হবে?",
       "acceptedAnswer": { "@type": "Answer", "text": "না। পোর্টেবল জিপ আনজিপ করে MK-71 Keyboard.exe চালালেই হয়; চাইলে ইনস্টলারও আছে।" }
+    },
+    {
+      "@type": "Question",
+      "name": "কোন ফাইল নামাবো?",
+      "acceptedAnswer": { "@type": "Answer", "text": "৬৪-বিট Windows-এর জন্য Windows_x64_Portable.zip, পুরোনো ৩২-বিট Windows 7/8.1-এর জন্য Windows_x32_Portable.zip। সেটআপ উইজার্ড চাইলে Windows_x64_Installer.zip বা Windows_x32_Installer.zip।" }
+    },
+    {
+      "@type": "Question",
+      "name": "ভাষা কীভাবে বদলাবো?",
+      "acceptedAnswer": { "@type": "Answer", "text": "টপ বারের বাংলা/English বাটন, অথবা Ctrl+Shift+L। অন্য যেকোনো অ্যাপে বাংলা লিখতে Ctrl+Alt+K।" }
     }
   ]
 }
 </script>
-<style>
-  :root { color-scheme: light; }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; background: #f7f5ee; color: #26302b;
-    font-family: "Nirmala UI", "Noto Sans Bengali", "Segoe UI", sans-serif;
-    line-height: 1.7;
-  }
-  a { color: #0b6b5c; }
-  header {
-    background: #0f5f53; color: #fff; padding: 34px 20px 28px;
-  }
-  header .wrap { max-width: 940px; margin: 0 auto; }
-  header h1 { margin: 0 0 6px; font-size: 30px; line-height: 1.25; }
-  header p { margin: 0; opacity: .92; }
-  main { max-width: 940px; margin: 0 auto; padding: 24px 20px 60px; }
-  h2 { font-size: 21px; margin: 34px 0 10px; }
-  .shots img { width: 100%; border: 1px solid #e2dcc9; border-radius: 10px; margin: 10px 0; }
-  .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0 4px; }
-  .btn {
-    display: inline-block; padding: 11px 18px; border-radius: 9px; font-weight: 700;
-    text-decoration: none; background: #0f5f53; color: #fff;
-  }
-  .btn.alt { background: #fff; color: #0f5f53; border: 1px solid #0f5f53; }
-  ul { padding-left: 20px; }
-  li { margin: 4px 0; }
-  .note { background: #fffdf5; border: 1px solid #e8e1cd; border-radius: 10px; padding: 12px 16px; }
-  footer { border-top: 1px solid #e4ddc9; margin-top: 34px; padding-top: 14px; font-size: 14px; color: #5c6660; }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <h1>MK-71 Keyboard</h1>
-    <p>বাংলা + English অন-স্ক্রিন কিবোর্ড, ভয়েস টাইপিং আর AI প্রুফরিডিং — Windows ৭ থেকে ১১।</p>
+
+<nav class="nav">
+  <div class="bar">
+    <a class="brand" href="index.html"><img src="img/icon.png" alt="MK-71 Keyboard" width="30" height="30"><strong>MK-71 Keyboard</strong></a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="মেনু" aria-controls="navLinks" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#features" data-en="💡 Features">💡 ফিচার</a></li>
+      <li><a href="#faq" data-en="❓ FAQ">❓ প্রশ্ন</a></li>
+      <li><a href="#solutions" data-en="🔧 Solutions">🔧 সমাধান</a></li>
+      <li><a href="#policy" data-en="📘 Policy">📘 নীতি</a></li>
+      <li class="socials">
+        <a href="https://t.me/mk4u71" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" style="fill:#229ED9" aria-hidden="true"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm5.9 7.2c.1 0 .3 0 .5.2.2.1.2.3.2.5l-.2.5-1.4 8.6c-.2.9-.5 1.2-.8 1.2-.7.1-1.2-.5-1.9-.9-1.1-.7-1.7-1.1-2.7-1.8-1.2-.8-.4-1.2.3-1.9.2-.2 3.2-3 3.3-3.2v-.2c0-.1-.2-.1-.2 0-.1 0-1.8 1.1-5.1 3.3-.5.3-.9.5-1.3.5-.4 0-1.3-.2-1.9-.4-.8-.2-1.4-.4-1.3-.8 0-.2.3-.4.9-.7 3.5-1.5 5.8-2.5 7-3 3.3-1.4 4-1.6 4.5-1.6z"/></svg></a>
+        <a href="https://github.com/Mk4u-Me/mk71-keyboard" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" style="fill:#0e0f73" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg></a>
+        <a href="mailto:Mk4ume@proton.me" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" style="fill:#068eff" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.2-.5 7.8 5.8L19.8 5H4.2zM20 6.9l-7.4 5.5a1 1 0 0 1-1.2 0L4 6.9v11.6c0 .3.2.5.5.5h15c.3 0 .5-.2.5-.5V6.9z"/></svg></a>
+      </li>
+      <li><button class="pill" id="langBtn" type="button">English</button></li>
+    </ul>
   </div>
-</header>
+</nav>
 
-<main>
-  <p>Windows-এর জন্য ফ্রি বাংলা ও English কিবোর্ড। Avro/ফোনেটিক টাইপিং, বিজয় ৫২, Probhat,
-  Unibijoy সহ ৯টি লেআউট, ANSI/Bijoy এনকোডিং কনভার্টার, সাজেশন ও অটো-কারেকশন — সব এক
-  অ্যাপে, ইন্টারনেট ছাড়াই।</p>
+<main class="wrap">
 
-  <div class="buttons">
-    <a class="btn" href="https://github.com/Mk4u-Me/mk71-keyboard/releases/latest">ডাউনলোড (৬৪-বিট)</a>
-    <a class="btn alt" href="https://github.com/Mk4u-Me/mk71-keyboard/releases/latest">৩২-বিট ও ইনস্টলার</a>
-    <a class="btn alt" href="MK-71%20Keyboard%20-%20User%20Guide.pdf">বাংলা গাইড (PDF)</a>
+  <section class="hero">
+    <div class="hero-logo">
+      <a href="MK-71%20Keyboard%20-%20User%20Guide.pdf" target="_blank" rel="noopener" title="বাংলা ইউজার গাইড (PDF)">
+        <img src="img/icon.png" alt="MK-71 Keyboard আইকন" width="156" height="156">
+      </a>
+    </div>
+    <div class="card">
+      <h1>MK-71 Keyboard <span class="ver">v1.0.5</span></h1>
+      <p class="tagline" data-en="Typing made simple, fast and accurate">টাইপিং হোক সহজ, দ্রুত আর নির্ভুল</p>
+      <p class="mini" data-en="Free Bangla + English on-screen keyboard for Windows 7–11 · 32-bit and 64-bit.">Windows ৭–১১-এর জন্য ফ্রি বাংলা + English অন-স্ক্রিন কিবোর্ড · ৩২ ও ৬৪-বিট।</p>
+      <div class="btns">
+        <button class="btn btn-installer" type="button" data-open-modal>⬇️ <strong>Installer</strong></button>
+        <button class="btn btn-installer" type="button" data-open-modal>⬇️ <strong>Portable</strong></button>
+        <a class="btn btn-blue" href="https://github.com/Mk4u-Me/mk71-keyboard/releases" target="_blank" rel="noopener">🐙 <strong>Archive</strong></a>
+      </div>
+      <p class="mini">📖 <a href="MK-71%20Keyboard%20-%20User%20Guide.pdf" target="_blank" rel="noopener">বাংলা ইউজার গাইড (PDF)</a> · 🧭 <a href="download.html">ধাপে ধাপে ডাউনলোড গাইড</a></p>
+    </div>
+  </section>
+
+  <p class="mini" style="margin-top:14px" data-en="The app is called MK-71 Keyboard. Many people also search for Mk71 Keyboard, mk71 keybord, Mk71-keybord or MK 71 keyboard — all of them are this same app, and downloads always come from the same release page.">অ্যাপটির পুরো নাম <b>MK-71 Keyboard</b>। অনেকে এটাকে <b>Mk71 Keyboard</b>, <b>mk71 keybord</b>, <b>Mk71-keybord</b> বা <b>MK 71 keyboard</b> লিখেও খোঁজেন — সবগুলোই এই একই অ্যাপ, আর ডাউনলোড সবসময় একই রিলিজ পেজ থেকে হয়।</p>
+
+  <h2 class="sec" id="installation" data-en="📥 Installation">📥 ইনস্টলেশন</h2>
+  <div class="body-box">
+    <p data-en="📌 <b>System requirements:</b> for a smooth install and everyday use, your PC should meet the following."><b>📌 সিস্টেম চাহিদা:</b> ইনস্টল ও নিত্যদিনের ব্যবহার নির্বিঘ্ন হতে হলে আপনার পিসিতে নিচের বিষয়গুলো থাকা দরকার।</p>
+    <p data-en="<b>Operating system:</b> Windows 7 SP1, 8.1, 10 or 11 — 32-bit or 64-bit. On Windows 7/8.1 install the Visual C++ 2015–2019 runtime and KB2999226."><b>অপারেটিং সিস্টেম:</b> Windows 7 SP1, 8.1, 10 বা 11 — ৩২-বিট বা ৬৪-বিট। Windows 7/8.1-এ Visual C++ 2015–2019 runtime আর KB2999226 ইনস্টল থাকতে হবে।</p>
+    <p data-en="<b>RAM:</b> 2 GB minimum, 4 GB recommended."><b>র‍্যাম:</b> ন্যূনতম ২ GB, ৪ GB হলে আরও ভালো।</p>
+    <p data-en="<b>Disk space:</b> about 250 MB free."><b>ডিস্ক স্পেস:</b> প্রায় ২৫০ MB ফাঁকা জায়গা।</p>
+    <p data-en="<b>Internet:</b> needed only for voice typing and optional AI proofreading. Everything else works offline."><b>ইন্টারনেট:</b> শুধু ভয়েস টাইপিং আর ঐচ্ছিক AI প্রুফরিডিং-এ লাগে। বাকি সব ফিচার অফলাইনেই চলে।</p>
+    <p class="note" data-en="🔹 <b>Installer and Portable are the same app.</b> The build is not code-signed, so some antivirus software or Windows SmartScreen may show a warning. If you trust the download, choose <b>More info → Run anyway</b>. The app is open source under GNU GPL v3.0.">🔹 <b>ইনস্টলার আর পোর্টেবল — দুটোই একই অ্যাপ।</b> বিল্ডটি কোড-সাইন করা নয়, তাই কিছু অ্যান্টিভাইরাস বা Windows SmartScreen সতর্কতা দেখাতে পারে। ফাইলটি বিশ্বাসযোগ্য মনে হলে <b>More info → Run anyway</b> চাপুন। অ্যাপটি GNU GPL v3.0 লাইসেন্সে ওপেন সোর্স।</p>
   </div>
-  <p class="note">নতুন? <a href="download.html"><b>ডাউনলোড ও ইনস্টল গাইড</b></a> — কোন ফাইল নামাবেন,
-  ধাপে ধাপে সেটআপ আর সাধারণ সমস্যার সমাধান এক পেজে।</p>
 
-  <p>অ্যাপটির পুরো নাম <b>MK-71 Keyboard</b>। অনেকে এটাকে <b>Mk71 Keyboard</b>,
-  <b>mk71 keybord</b>, <b>Mk71-keybord</b> বা <b>MK 71 keyboard</b> লিখেও খোঁজেন —
-  সবগুলোই এই একই অ্যাপ, আর ডাউনলোড সবসময় একই রিলিজ পেজ থেকে হয়।</p>
-
-  <div class="shots">
-    <img src="screenshots/keyboard-bangla.png" alt="MK-71 Keyboard — বাংলা কিবোর্ড" width="936" height="340">
-    <img src="screenshots/keyboard-english.png" alt="MK-71 Keyboard — English keyboard" width="936" height="340">
-    <img src="screenshots/layouts-menu.png" alt="MK-71 Keyboard — বাংলা লেআউট মেনু (Avro, Bijoy Bayanno, Probhat, Unibijoy)">
+  <h2 class="sec" id="features" data-en="💡 Features">💡 ফিচার</h2>
+  <div class="grid">
+    <div class="tile">
+      <h3 data-en="Two languages, one app">দুটো ভাষা, এক অ্যাপ</h3>
+      <p data-en="Avro/phonetic or fixed Bangla layouts plus a full English QWERTY — switch with the top-bar button or Ctrl+Shift+L.">Avro/ফোনেটিক বা ফিক্সড বাংলা লেআউট, সাথে পূর্ণ English QWERTY — টপ বারের বাটন বা Ctrl+Shift+L দিয়ে বদলান।</p>
+    </div>
+    <div class="tile">
+      <h3 data-en="Nine Bangla layouts">৯টি বাংলা লেআউট</h3>
+      <p data-en="Avro phonetic, Banglish, Bijoy Bayanno, Inscript, Khipro, Munir Optima, National (Jatiya), Probhat and Unibijoy — plus importing your own layout.">Avro phonetic, Banglish, Bijoy Bayanno, Inscript, Khipro, Munir Optima, National (Jatiya), Probhat ও Unibijoy — সাথে নিজের লেআউট Import করার সুবিধা।</p>
+    </div>
+    <div class="tile">
+      <h3 data-en="Encoding converter">এনকোডিং কনভার্টার</h3>
+      <p data-en="Convert ANSI / Bijoy / Probhat text to Unicode and back, without any other software.">ANSI / Bijoy / Probhat লেখা Unicode-এ আর Unicode থেকে ফিরিয়ে — আলাদা কোনো সফটওয়্যার ছাড়াই।</p>
+    </div>
+    <div class="tile">
+      <h3 data-en="Bangla in any app">অন্য অ্যাপেও বাংলা</h3>
+      <p data-en="Press Ctrl+Alt+K and type Bangla in Chrome, Word, Notepad — wherever you need it.">Ctrl+Alt+K চেপে Chrome, Word, Notepad — যেখানে দরকার সেখানেই বাংলা লিখুন।</p>
+    </div>
+    <div class="tile">
+      <h3 data-en="Voice typing + AI proofreading">ভয়েস টাইপিং + AI প্রুফরিডিং</h3>
+      <p data-en="Speak and the text appears (Ctrl+Alt+V); optional AI fixes spelling, punctuation and can translate.">মাইকে বলুন, লেখা বসে যাবে (Ctrl+Alt+V); ঐচ্ছিক AI বানান-যতিচিহ্ন ঠিক করে, অনুবাদও করতে পারে।</p>
+    </div>
+    <div class="tile">
+      <h3 data-en="Offline and private">অফলাইন ও প্রাইভেট</h3>
+      <p data-en="No tracking, no account, no cloud sync. Settings and dictionaries stay on your own PC.">কোনো ট্র্যাকিং, অ্যাকাউন্ট বা ক্লাউড সিঙ্ক নেই। সেটিংস আর অভিধান আপনার নিজের পিসিতেই থাকে।</p>
+    </div>
   </div>
 
-  <h2>যা যা আছে</h2>
-  <ul>
-    <li><b>দুটো ভাষা</b> — Avro/ফোনেটিক বা ফিক্সড বাংলা লেআউট, আর পূর্ণ English QWERTY।</li>
-    <li><b>বিজয় ৫২, অভ্র, কণ্ঠ-র ফিচার</b> — Avro phonetic, Banglish, Bijoy Bayanno, Inscript,
-      Khipro, Munir Optima, National (Jatiya), Probhat, Unibijoy; নিজের লেআউট Import।</li>
-    <li><b>এনকোডিং কনভার্টার</b> — ANSI / Bijoy / Probhat ↔ Unicode।</li>
-    <li><b>অন্য অ্যাপেও বাংলা</b> — Ctrl+Alt+K দিয়ে Chrome, Word, Notepad যে-কোনো জায়গায়।</li>
-    <li><b>ভয়েস টাইপিং</b> — মাইকে বলুন, লেখা বসে যাবে; কোটা শেষ হলে ফ্রি সার্ভিসে নেমে যায়।</li>
-    <li><b>AI প্রুফরিডিং (ঐচ্ছিক)</b> — বানান-যতিচিহ্ন, সমার্থক শব্দ, অনুবাদ।</li>
-    <li><b>অফলাইন ও প্রাইভেট</b> — কোনো ট্র্যাকিং নেই, অ্যাকাউন্ট লাগে না।</li>
-  </ul>
-  <p>ফিচারের বিস্তারিত: <a href="download.html#features">কী কী আছে ও কোন ফাইল নামাবেন</a>।</p>
+  <h2 class="sec" id="message" data-en="📧 Message for all users">📧 সব ব্যবহারকারীর জন্য</h2>
+  <div class="body-box">
+    <p data-en="MK-71 Keyboard started as a small personal project for writing Bangla on Windows without installing three separate tools. Today it is a complete Bangla + English keyboard: on-screen typing, nine layouts, encoding conversion, voice typing and optional AI proofreading — free, and open source under GNU GPL v3.0.">MK-71 Keyboard শুরু হয়েছিল একটা ছোট ব্যক্তিগত প্রয়াস হিসেবে — Windows-এ বাংলা লেখার জন্য তিনটি আলাদা সফটওয়্যার ইনস্টল না করেই কাজ চালানো যায়। আজ এটি একটি পূর্ণ বাংলা + English কিবোর্ড: অন-স্ক্রিন টাইপিং, ৯টি লেআউট, এনকোডিং কনভার্শন, ভয়েস টাইপিং আর ঐচ্ছিক AI প্রুফরিডিং — সম্পূর্ণ ফ্রি এবং GNU GPL v3.0-এ ওপেন সোর্স।</p>
+    <p data-en="🐛 <b>Bug reporting:</b> no software is free of bugs. If something misbehaves, please write on our Telegram (<a href='https://t.me/mk4u71'>t.me/mk4u71</a>) or email <a href='mailto:Mk4ume@proton.me'>Mk4ume@proton.me</a> with the version, Windows build and steps to reproduce.">🐛 <b>বাগ রিপোর্ট:</b> কোনো সফটওয়্যারই সম্পূর্ণ ত্রুটিমুক্ত নয়। কোনো সমস্যা হলে Telegram (<a href="https://t.me/mk4u71">t.me/mk4u71</a>) বা <a href="mailto:Mk4ume@proton.me">Mk4ume@proton.me</a>-এ ভרסন, Windows বিল্ড আর কীভাবে সমস্যাটি হচ্ছে লিখে জানান।</p>
+    <p data-en="📌 <b>Antivirus flagging:</b> 🚩 some antivirus engines may flag the installer or portable zip because the build is not code-signed. If a warning appears, check that the file came from our GitHub releases and choose <b>More info → Run anyway</b>.">📌 <b>অ্যান্টিভাইরাস সতর্কতা:</b> 🚩 বিল্ডটি কোড-সাইন করা না থাকায় কিছু অ্যান্টিভাইরাস ইনস্টলার বা পোর্টেবল জিপ চিহ্নিত করতে পারে। সতর্কতা এলে ফাইলটি আমাদের GitHub রিলিজ থেকে নেওয়া কিনা দেখে নিন, তারপর <b>More info → Run anyway</b> চাপুন।</p>
+    <p data-en="Your feedback and support are what keep this project moving. Thank you for using MK-71 Keyboard and for helping make it more reliable for everyone.">আপনার মতামত আর সমর্থনেই এই প্রজেক্ট এগিয়ে চলে। MK-71 Keyboard ব্যবহার করার জন্য আর এটিকে আরও নির্ভরযোগ্য করতে সাহায্য করার জন্য ধন্যবাদ।</p>
+    <p data-en="🦺 <b>Developer:</b> <b>K. Mustakim (Mk4u-Me)</b>">🦺 <b>ডেভেলপার:</b> <b>K. Mustakim (Mk4u-Me)</b></p>
+  </div>
 
-  <h2>প্রশ্ন ও উত্তর</h2>
-  <p><b>Mk71 Keyboard কী?</b> বাংলা ও English লেখার একটি ছোট Windows অ্যাপ — অন-স্ক্রিন
-  কিবোর্ড, ভয়েস টাইপিং, এনকোডিং কনভার্টার আর ঐচ্ছিক AI প্রুফরিডিং একসাথে।</p>
-  <p><b>দাম কত?</b> ফ্রি। অ্যাক্টিভেশন, লাইসেন্স কি বা সাবস্ক্রিপশন নেই।</p>
-  <p><b>কোথায় চলে?</b> Windows 7 SP1, 8.1, 10 ও 11 — ৩২ ও ৬৪-বিট দুটোতেই।</p>
-  <p><b>ইনস্টল করতে হবে?</b> না — পোর্টেবল জিপ আনজিপ করে চালালেই হয়; চাইলে ইনস্টলারও আছে।</p>
+  <h2 class="sec" id="solutions" data-en="🔧 Solutions">🔧 সমাধান</h2>
+  <div class="grid">
+    <div class="tile">
+      <h3 data-en="Windows SmartScreen warning">Windows SmartScreen সতর্কতা</h3>
+      <p data-en="The build isn't code-signed, so Windows asks first. Click <b>More info</b> → <b>Run anyway</b>.">বিল্ডটি কোড-সাইন করা নয়, তাই Windows আগে জিজ্ঞেস করে। <b>More info</b> → <b>Run anyway</b> চাপুন।</p>
+    </div>
+    <div class="tile">
+      <h3 data-en="Ctrl+Alt+K does nothing">Ctrl+Alt+K কাজ করছে না</h3>
+      <p data-en="Make sure MK-71 Keyboard is running (tray icon) and the other app isn't running as administrator — a normal app can't send keys into an elevated window.">MK-71 Keyboard চালু আছে কিনা (ট্রে আইকন) দেখুন, আর অন্য অ্যাপটি administrator হিসেবে চলছে কিনা — সাধারণ অ্যাপ elevated উইন্ডোতে কী পাঠাতে পারে না।</p>
+    </div>
+    <div class="tile">
+      <h3 data-en="Bangla shows as boxes">বাংলা অক্ষর বক্স দেখাচ্ছে</h3>
+      <p data-en="Install a Bangla font such as Nirmala UI or Noto Sans Bengali; Windows 7/8.1 also needs the Visual C++ runtime and KB2999226.">Nirmala UI বা Noto Sans Bengali-র মতো বাংলা ফন্ট ইনস্টল করুন; Windows 7/8.1-এ Visual C++ runtime আর KB2999226-ও লাগবে।</p>
+    </div>
+    <div class="tile">
+      <h3 data-en="Updating to a new version">নতুন ভার্সনে আপডেট</h3>
+      <p data-en="Download the new zip and unpack it over the same folder, keeping the <code>data</code> folder — settings and dictionaries survive.">নতুন জিপ নামিয়ে একই ফোল্ডারে আনজিপ করুন, তবে <code>data</code> ফোল্ডারটি রাখুন — সেটিংস আর অভিধান হারাবে না।</p>
+    </div>
+  </div>
 
-  <h2>লিংক</h2>
-  <p class="note">
-    GitHub: <a href="https://github.com/Mk4u-Me/mk71-keyboard">github.com/Mk4u-Me/mk71-keyboard</a><br>
-    সর্বশেষ রিলিজ: <a href="https://github.com/Mk4u-Me/mk71-keyboard/releases/latest">releases/latest</a><br>
-    Telegram: <a href="https://t.me/mk4u71">t.me/mk4u71</a> · Email: <a href="mailto:Mk4ume@proton.me">Mk4ume@proton.me</a>
-  </p>
+  <h2 class="sec" id="faq" data-en="❓ Frequently asked questions">❓ প্রশ্ন ও উত্তর</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false" data-en="What is MK-71 Keyboard?">MK-71 Keyboard কী?</button>
+      <div class="faq-a"><p data-en="A small Windows app for writing Bangla and English: on-screen keyboard, nine Bangla layouts, encoding converter, voice typing and optional AI proofreading — all in one place.">বাংলা ও English লেখার একটি ছোট Windows অ্যাপ — অন-স্ক্রিন কিবোর্ড, ৯টি বাংলা লেআউট, এনকোডিং কনভার্টার, ভয়েস টাইপিং আর ঐচ্ছিক AI প্রুফরিডিং একসাথে।</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false" data-en="How much does it cost?">দাম কত?</button>
+      <div class="faq-a"><p data-en="Free. There is no activation, licence key or subscription; the source is published under GNU GPL v3.0.">ফ্রি। কোনো অ্যাক্টিভেশন, লাইসেন্স কি বা সাবস্ক্রিপশন নেই; সোর্স GNU GPL v3.0-এ প্রকাশিত।</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false" data-en="Which versions of Windows are supported?">কোন Windows-এ চলে?</button>
+      <div class="faq-a"><p data-en="Windows 7 SP1, 8.1, 10 and 11, on both 32-bit and 64-bit.">Windows 7 SP1, 8.1, 10 ও 11 — ৩২-বিট ও ৬৪-বিট দুটোতেই।</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false" data-en="Do I have to install it?">ইনস্টল করতে হবে?</button>
+      <div class="faq-a"><p data-en="No. Unpack the portable zip and run MK-71 Keyboard.exe — settings stay in that folder, so you can even carry it on a USB drive. An installer with Start Menu and uninstall entries is also available.">না। পোর্টেবল জিপ আনজিপ করে MK-71 Keyboard.exe চালালেই হয় — সেটিংস ওই ফোল্ডারেই থাকে, তাই পেনড্রাইভেও নেওয়া যায়। Start Menu ও Uninstall এন্ট্রিসহ ইনস্টলারও আছে।</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false" data-en="Which file should I download?">কোন ফাইল নামাবো?</button>
+      <div class="faq-a"><p data-en="64-bit Windows 10/11: <code>Windows_x64_Portable.zip</code>. Old 32-bit Windows 7/8.1: <code>Windows_x32_Portable.zip</code>. If you want a setup wizard, take the matching <code>_Installer.zip</code>.">৬৪-বিট Windows 10/11: <code>Windows_x64_Portable.zip</code>। পুরোনো ৩২-বিট Windows 7/8.1: <code>Windows_x32_Portable.zip</code>। সেটআপ উইজার্ড চাইলে সংশ্লিষ্ট <code>_Installer.zip</code>।</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false" data-en="How do I switch language?">ভাষা কীভাবে বদলাবো?</button>
+      <div class="faq-a"><p data-en="Use the বাংলা/English button in the top bar, or Ctrl+Shift+L. To write Bangla in another app, press Ctrl+Alt+K.">টপ বারের <b>বাংলা/English</b> বাটন, অথবা <b>Ctrl+Shift+L</b>। অন্য অ্যাপে বাংলা লিখতে <b>Ctrl+Alt+K</b>।</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false" data-en="How do I update?">আপডেট কীভাবে?</button>
+      <div class="faq-a"><p data-en="Download the new release zip and unpack it into the same folder; because settings live in the <code>data</code> folder, nothing is lost.">নতুন রিলিজের জিপটি নামিয়ে একই ফোল্ডারে বসিয়ে দিন — সেটিংস <code>data</code> ফোল্ডারে থাকায় কিছুই হারায় না।</p></div>
+    </div>
+  </div>
 
-  <footer>
-    MK-71 Keyboard · সংস্করণ 1.0.5 · Windows 7–11 · ৩২ ও ৬৪-বিট · GNU GPL v3.0<br>
-    <a href="download.html">ডাউনলোড ও ইনস্টল</a> ·
-    <a href="https://github.com/Mk4u-Me/mk71-keyboard">GitHub</a> ·
-    <a href="https://t.me/mk4u71">Telegram</a>
+  <h2 class="sec" id="policy" data-en="📘 Policy">📘 নীতি</h2>
+  <div class="body-box policy">
+    <p data-en="<b>Acceptance of terms:</b> by using this application you agree to these terms. If you do not agree, please do not use the app."><b>শর্তের গ্রহণযোগ্যতা:</b> অ্যাপটি ব্যবহার করলে আপনি এই শর্তগুলো মেনে নিচ্ছেন। সম্মত না হলে অ্যাপটি ব্যবহার করবেন না।</p>
+    <p data-en="<b>Free and open source:</b> MK-71 Keyboard is free software released under GNU GPL v3.0. There is no paid version, no serial key and no subscription."><b>ফ্রি ও ওপেন সোর্স:</b> MK-71 Keyboard GNU GPL v3.0-এর অধীনে প্রকাশিত ফ্রি সফটওয়্যার। কোনো পেইড ভার্সন, সিরিয়াল কি বা সাবস্ক্রিপশন নেই।</p>
+    <p data-en="<b>Your data:</b> settings, dictionaries and history are stored on your own PC. We do not collect personal data and do not share anything with third parties. Voice typing and AI proofreading only work when you use them, and only then is the internet used."><b>আপনার ডেটা:</b> সেটিংস, অভিধান আর হিস্টোরি আপনার নিজের পিসিতেই থাকে। আমরা ব্যক্তিগত কোনো ডেটা সংগ্রহ করি না, তৃতীয় পক্ষের সাথে শেয়ারও করি না। ভয়েস টাইপিং ও AI প্রুফরিডিং আপনি ব্যবহার করলেই কেবল ইন্টারনেট লাগে।</p>
+    <p data-en="<b>System compatibility:</b> the app talks to other applications to insert text. If another program in your system interferes or refuses to interact, the app may not behave as expected — in that case it is a system-environment issue rather than an app bug."><b>সিস্টেম কম্প্যাটিবিলিটি:</b> টেক্সট বসানোর জন্য অ্যাপটি অন্য অ্যাপ্লিকেশনের সাথে যোগাযোগ করে। সিস্টেমের অন্য কোনো প্রোগ্রাম বাধা দিলে বা যোগাযোগে ব্যর্থ হলে অ্যাপ প্রত্যাশামতো কাজ নাও করতে পারে — সেক্ষেত্রে এটি অ্যাপের বাগ নয়, সিস্টেম এনভায়রনমেন্টের সমস্যা।</p>
+    <p data-en="<b>Our limitations:</b> this is not a commercial product and there is no dedicated support team. We try to answer every report, but minor issues are best solved locally; help from an experienced person nearby is often the quickest route."><b>আমাদের সীমাবদ্ধতা:</b> এটি বাণিজ্যিক পণ্য নয়, আলাদা সাপোর্ট টিমও নেই। প্রতিটি রিপোর্টের উত্তর দেওয়ার চেষ্টা করি, তবে ছোট সমস্যা নিজে সমাধান করাই ভালো; কাছের অভিজ্ঞ কারও সাহায্য নিলে দ্রুত সমাধান মেলে।</p>
+    <p data-en="<b>Changes:</b> features and these terms may be updated at any time; changes take effect as soon as they are published on this page or in the app."><b>পরিবর্তন:</b> ফিচার ও এই শর্ত যেকোনো সময় হালনাগাদ হতে পারে; এই পেজে বা অ্যাপে প্রকাশের সাথে সাথেই সেগুলো কার্যকর হবে।</p>
+    <p data-en="<b>Limitation of liability:</b> the application is provided on an 'as is' basis, without warranty. We are not liable for any direct or indirect damages arising from its use."><b>দায়সীমা:</b> অ্যাপটি কোনো ওয়ারেন্টি ছাড়া “যেমন আছে তেমন” ভিত্তিতে দেওয়া হয়। এটি ব্যবহারে কোনো প্রত্যক্ষ বা পরোক্ষ ক্ষতির জন্য আমরা দায়ী নই।</p>
+    <p data-en="<b>Contact us:</b> questions about this policy? Write to <a href='mailto:Mk4ume@proton.me'>Mk4ume@proton.me</a> or on Telegram <a href='https://t.me/mk4u71'>t.me/mk4u71</a>."><b>যোগাযোগ:</b> এই নীতি নিয়ে প্রশ্ন থাকলে <a href="mailto:Mk4ume@proton.me">Mk4ume@proton.me</a> বা Telegram <a href="https://t.me/mk4u71">t.me/mk4u71</a>-এ লিখুন।</p>
+  </div>
+
+  <footer class="footer">
+    Copyright © 2026 MK-71 Keyboard · GNU GPL v3.0
+    <div class="links">
+      <a href="download.html">ডাউনলোড ও ইনস্টল</a>
+      <a href="https://github.com/Mk4u-Me/mk71-keyboard" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://t.me/mk4u71" target="_blank" rel="noopener">Telegram</a>
+      <a href="mailto:Mk4ume@proton.me">Mk4ume@proton.me</a>
+    </div>
   </footer>
+
 </main>
+
+<div class="modal" id="dlModal" role="dialog" aria-modal="true" aria-labelledby="dlTitle">
+  <div class="modal-box">
+    <h2 id="dlTitle" data-en="Download MK-71 Keyboard">MK-71 Keyboard নামান</h2>
+    <p data-en="📢 The Installer and Portable builds are <b>safe to use</b>, but because the build is not code-signed some antivirus software may flag them 🚩. The Portable zip needs no installation — unpack it and run <b>MK-71 Keyboard.exe</b>.">📢 ইনস্টলার ও পোর্টেবল — দুটোই <b>ব্যবহারে নিরাপদ</b>, তবে বিল্ডটি কোড-সাইন করা না থাকায় কিছু অ্যান্টিভাইরাস চিহ্নিত করতে পারে 🚩। পোর্টেবল জিপে ইনস্টল লাগে না — আনজিপ করে <b>MK-71 Keyboard.exe</b> চালালেই হয়।</p>
+    <p data-en="🔵 Always download from this page or the official GitHub release; files from other sources may be modified.">🔵 সবসময় এই পেজ বা অফিসিয়াল GitHub রিলিজ থেকেই নামান; অন্য উৎসের ফাইল পরিবর্তিত থাকতে পারে।</p>
+    <label class="ack"><input type="checkbox" id="dlAck"><span data-en="I've read the note and I want to download.">সতর্কতাটি পড়েছি, আমি নামাতে চাই।</span></label>
+    <div class="modal-btns">
+      <a class="btn btn-installer dl-link disabled" href="https://github.com/Mk4u-Me/mk71-keyboard/releases/latest/download/Windows_x64_Installer.zip">⬇️ Installer 64-bit</a>
+      <a class="btn btn-installer dl-link disabled" href="https://github.com/Mk4u-Me/mk71-keyboard/releases/latest/download/Windows_x32_Installer.zip">⬇️ Installer 32-bit</a>
+      <a class="btn btn-blue dl-link disabled" href="https://github.com/Mk4u-Me/mk71-keyboard/releases/latest/download/Windows_x64_Portable.zip">⬇️ Portable 64-bit</a>
+      <a class="btn btn-blue dl-link disabled" href="https://github.com/Mk4u-Me/mk71-keyboard/releases/latest/download/Windows_x32_Portable.zip">⬇️ Portable 32-bit</a>
+      <button class="btn btn-grey" type="button" data-close data-en="Cancel">বাতিল</button>
+    </div>
+    <p class="mini" style="margin-top:12px" data-en="Step-by-step help: <a href='download.html'>download &amp; install guide</a>.">ধাপে ধাপে সাহায্য: <a href="download.html">ডাউনলোড ও ইনস্টল গাইড</a>।</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var nav = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  nav.addEventListener('click', function () {
+    var open = links.classList.toggle('open');
+    nav.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.addEventListener('click', function (e) {
+    if (e.target.closest('a')) links.classList.remove('open');
+  });
+
+  document.querySelectorAll('.faq-q').forEach(function (q) {
+    q.addEventListener('click', function () {
+      var item = q.parentElement;
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (o) {
+        o.classList.remove('open');
+        o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        q.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  var modal = document.getElementById('dlModal');
+  var ack = document.getElementById('dlAck');
+  function syncLinks() {
+    modal.querySelectorAll('.dl-link').forEach(function (a) {
+      a.classList.toggle('disabled', !ack.checked);
+      a.setAttribute('tabindex', ack.checked ? '0' : '-1');
+      a.setAttribute('aria-disabled', ack.checked ? 'false' : 'true');
+    });
+  }
+  function openModal() {
+    modal.classList.add('open');
+    document.body.classList.add('modal-open');
+    ack.focus();
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.classList.remove('modal-open');
+  }
+  document.querySelectorAll('[data-open-modal]').forEach(function (b) {
+    b.addEventListener('click', openModal);
+  });
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal || e.target.closest('[data-close]')) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+  ack.addEventListener('change', syncLinks);
+  syncLinks();
+
+  var langBtn = document.getElementById('langBtn');
+  var lang = 'bn';
+  langBtn.addEventListener('click', function () {
+    lang = lang === 'bn' ? 'en' : 'bn';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      if (!el.dataset.bn) el.dataset.bn = el.innerHTML;
+      el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.bn;
+    });
+    langBtn.textContent = lang === 'bn' ? 'English' : 'বাংলা';
+  });
+})();
+</script>
 </body>
 </html>
