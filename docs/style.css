@@ -353,7 +353,7 @@ body.about {
 
 .about-card {
   display: grid;
-  grid-template-columns: 320px minmax(0, 1fr) 300px;
+  grid-template-columns: 260px minmax(0, 1fr) 300px;
   gap: 26px;
   align-items: start;
   padding: 22px;
@@ -379,8 +379,8 @@ body.about {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 18%;
+  object-fit: contain;
+  object-position: center;
 }
 .about-body h2 { margin: 2px 0 10px; font-size: 1.65rem; line-height: 1.35; color: #0b2b6b; }
 .about-body h2 .hl { color: var(--blue); }
@@ -460,7 +460,7 @@ body.about {
 .contact-strip .connect:hover { background: var(--blue-deep); color: #fff; }
 
 @media (max-width: 1000px) {
-  .about-card { grid-template-columns: 260px minmax(0, 1fr); }
+  .about-card { grid-template-columns: 240px minmax(0, 1fr); }
   .mission { grid-column: 1 / -1; }
 }
 @media (max-width: 760px) {
