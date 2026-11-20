@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<title>MK-71 Keyboard — ব্যবহার নির্দেশিকা</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm 15mm 14mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font-family: "Nirmala UI", "Noto Sans Bengali", "Segoe UI", sans-serif;
+    font-size: 10.2pt;
+    line-height: 1.7;
+    color: #1f262e;
+  }
+  h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.35; }
+  p { margin: 5px 0 8px; }
+  ul, ol { margin: 4px 0 10px; padding-left: 20px; }
+  li { margin: 3px 0; }
+  a { color: #0b6b5c; text-decoration: none; }
+
+  /* ---------------------------------------------------------------- cover */
+  .cover {
+    height: 262mm;
+    page-break-after: always;
+    position: relative;
+    padding: 12mm 8mm 0;
+  }
+  .cover-band {
+    background: #0f5f53;
+    border-radius: 16px;
+    color: #ffffff;
+    padding: 22mm 14mm 16mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover-band:after {
+    content: "";
+    position: absolute;
+    right: -40mm; top: -40mm;
+    width: 110mm; height: 110mm;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+  }
+  .cover-band:before {
+    content: "";
+    position: absolute;
+    right: 10mm; bottom: -55mm;
+    width: 90mm; height: 90mm;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .cover-logo {
+    width: 26mm; height: 26mm;
+    border-radius: 9mm;
+    background: #ffffff;
+    padding: 3mm;
+    display: block;
+    margin-bottom: 8mm;
+  }
+  .cover-eyebrow {
+    display: inline-block;
+    font-size: 9pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 20px;
+    padding: 3px 12px;
+    margin-bottom: 6mm;
+  }
+  .cover h1 { font-size: 30pt; margin-bottom: 2mm; }
+  .cover .tagline { font-size: 14pt; opacity: .92; margin: 0 0 10mm; }
+  .cover-meta {
+    font-size: 9.5pt;
+    border-top: 1px solid rgba(255,255,255,0.35);
+    padding-top: 5mm;
+    line-height: 1.9;
+  }
+  .cover-intro {
+    margin-top: 12mm;
+    display: flex;
+    gap: 6mm;
+  }
+  .cover-intro div {
+    flex: 1;
+    border: 1px solid #d7e2de;
+    border-radius: 10px;
+    padding: 5mm;
+    background: #f5faf8;
+    font-size: 9.5pt;
+    line-height: 1.65;
+  }
+  .cover-intro b { color: #0f5f53; display: block; margin-bottom: 2mm; font-size: 10.5pt; }
+  .cover-foot {
+    position: absolute;
+    left: 8mm; right: 8mm; bottom: 4mm;
+    font-size: 8.5pt;
+    color: #6b7a80;
+    border-top: 1px solid #e2e9e6;
+    padding-top: 3mm;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* -------------------------------------------------------------- headings */
+  .page { page-break-before: always; }
+  .chapter-head {
+    border-bottom: 3px solid #0f5f53;
+    padding-bottom: 4mm;
+    margin-bottom: 6mm;
+    display: flex;
+    align-items: flex-start;
+    gap: 4mm;
+  }
+  .chapter-num {
+    flex: none;
+    width: 12mm; height: 12mm;
+    border-radius: 6mm;
+    background: #0f5f53;
+    color: #fff;
+    font-size: 14pt;
+    font-weight: 700;
+    text-align: center;
+    line-height: 12mm;
+  }
+  .chapter-head h2 { font-size: 18pt; color: #0f2f2a; }
+  .chapter-head .sub { font-size: 9.5pt; color: #5d6e73; margin-top: 1mm; }
+  h3 {
+    font-size: 12.5pt;
+    color: #0f5f53;
+    margin: 7mm 0 2mm;
+    padding-left: 3mm;
+    border-left: 4px solid #7fc3b4;
+  }
+  h4 { font-size: 10.8pt; color: #24343a; margin: 4mm 0 1mm; }
+
+  /* ---------------------------------------------------------------- pieces */
+  .lede {
+    font-size: 10.6pt;
+    background: #f3f8f6;
+    border-left: 4px solid #0f5f53;
+    padding: 4mm 5mm;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 5mm;
+  }
+  .callout {
+    border: 1px solid #d7e2de;
+    background: #f7fbfa;
+    border-radius: 8px;
+    padding: 4mm 5mm;
+    margin: 4mm 0;
+    font-size: 9.6pt;
+  }
+  .callout b { color: #0f5f53; }
+  .callout.warn { background: #fff8ed; border-color: #f0d9b5; }
+  .callout.warn b { color: #a86410; }
+  .callout.tip { background: #eef7f4; border-color: #bfded5; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 3mm 0 5mm;
+    font-size: 9.4pt;
+  }
+  th {
+    background: #0f5f53;
+    color: #fff;
+    text-align: left;
+    padding: 2.4mm 3mm;
+    font-weight: 600;
+  }
+  td {
+    border-bottom: 1px solid #dde7e3;
+    padding: 2.4mm 3mm;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f6faf8; }
+  .kbd {
+    display: inline-block;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 8.8pt;
+    background: #eef2f1;
+    border: 1px solid #c7d4cf;
+    border-bottom-width: 2px;
+    border-radius: 4px;
+    padding: 0 2mm;
+    white-space: nowrap;
+    color: #23343a;
+  }
+  .grid2 { display: flex; flex-wrap: wrap; gap: 4mm; }
+  .card {
+    flex: 1 1 46%;
+    border: 1px solid #dbe5e1;
+    border-radius: 9px;
+    padding: 4mm;
+    background: #ffffff;
+    page-break-inside: avoid;
+  }
+  .card b { display: block; color: #0f5f53; margin-bottom: 1mm; font-size: 10.4pt; }
+  .card span { font-size: 9.3pt; color: #4c5c62; line-height: 1.6; }
+  .steps { counter-reset: step; list-style: none; padding-left: 0; }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 10mm;
+    margin: 3mm 0;
+  }
+  .steps li:before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 0.2mm;
+    width: 6.5mm; height: 6.5mm;
+    border-radius: 50%;
+    background: #0f5f53;
+    color: #fff;
+    font-size: 8.8pt;
+    font-weight: 700;
+    text-align: center;
+    line-height: 6.5mm;
+  }
+  .toc {
+    border: 1px solid #dbe5e1;
+    border-radius: 10px;
+    padding: 5mm 6mm;
+    background: #fbfdfc;
+  }
+  .toc ol { margin: 0; padding-left: 5mm; }
+  .toc li { margin: 2.2mm 0; font-size: 10pt; }
+  .toc span { color: #6b7a80; font-size: 9pt; }
+  .small { font-size: 8.8pt; color: #68777c; }
+  .new-badge {
+    display: inline-block;
+    background: #d9822b;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 7.8pt;
+    font-weight: 700;
+    padding: 0.4mm 2mm;
+    vertical-align: 1px;
+    letter-spacing: .5px;
+  }
+  .footer-note {
+    margin-top: 8mm;
+    border-top: 1px solid #e2e9e6;
+    padding-top: 3mm;
+    font-size: 8.5pt;
+    color: #6b7a80;
+    text-align: center;
+  }
+  .no-break { page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ COVER -->
+<div class="cover">
+  <div class="cover-band">
+    <img class="cover-logo" src="../mk71/assets/icon.png" alt="MK-71">
+    <div class="cover-eyebrow">User Guide · ব্যবহার নির্দেশিকা</div>
+    <h1>MK-71 Keyboard</h1>
+    <p class="tagline">বাংলা + English অন-স্ক্রিন কিবোর্ড, ভয়েস টাইপিং আর AI</p>
+    <div class="cover-meta">
+      সংস্করণ 1.0.8 &nbsp;·&nbsp; Windows 7 / 8.1 / 10 / 11 &nbsp;·&nbsp; ৩২ ও ৬৪-বিট<br>
+      এই নির্দেশিকাটি দুটি ফাইলের সাথে দেওয়া হয়েছে: ৬৪-বিট পোর্টেবল
+      <span style="font-family:Consolas,monospace">Windows_x64_Portable.zip</span> ও ইনস্টলার
+      <span style="font-family:Consolas,monospace">Windows_x64_Installer.zip</span>
+    </div>
+  </div>
+
+  <div class="cover-intro">
+    <div>
+      <b>কে এই গাইডটি পড়বে</b>
+      প্রথমবার MK-71 চালানো যে কেউ। প্রতিটি ফিচার কোথায় আছে, কীভাবে চালু করবেন
+      আর কীভাবে ব্যবহার করবেন — সব ধাপে ধাপে লেখা আছে। কোনো কোডিং জ্ঞান লাগবে না।
+    </div>
+    <div>
+      <b>যা যা পারবেন</b>
+      ফোনেটিক বাংলা টাইপ, অন-স্ক্রিন কিবোর্ড, যেকোনো অ্যাপে বাংলা লেখা,
+      মাইকে বলে ভয়েস টাইপিং, অটো সাজেশন, এনকোডিং কনভার্টার এবং ঐচ্ছিক
+      AI প্রুফরিডিং — সব একই অ্যাপে।
+    </div>
+    <div>
+      <b>কী লাগবে</b>
+      উইন্ডোজ ৭ এসপি১ বা তার নতুন সংস্করণ, প্রায় ২৫০ MB ফাঁকা জায়গা।
+      টাইপিং, কনভার্টার ও লোকাল প্রুফরিডিং ইন্টারনেট ছাড়াই চলে; ভয়েস আর
+      AI-এর জন্য ইন্টারনেট দরকার।
+    </div>
+  </div>
+
+  <div class="cover-foot">
+    <span>MK-71 Keyboard · All in one keyboard</span>
+    <span>github.com/Mk4u-Me &nbsp;·&nbsp; t.me/mk4u71</span>
+  </div>
+</div>
+
+<!-- ============================================================== TOC -->
+<div class="chapter-head">
+  <div class="chapter-num">সূ</div>
+  <div>
+    <h2>সূচিপত্র</h2>
+    <div class="sub">যে অধ্যায়টি দরকার, সেটি থেকে পড়া শুরু করুন</div>
+  </div>
+</div>
+
+<div class="toc">
+  <ol>
+    <li><b>এক নজরে MK-71</b> <span>— অ্যাপটি কী কী কাজ করে</span></li>
+    <li><b>ইনস্টল ও প্রথম চালু</b> <span>— পোর্টেবল ও ইনস্টলার, ডেটা ফোল্ডার, SmartScreen</span></li>
+    <li><b>টপ বার</b> <span>— প্রতিটি বাটনের কাজ</span></li>
+    <li><b>অন-স্ক্রিন কিবোর্ড</b> <span>— ট্যাব, লেখা, জুম, মেনু</span></li>
+    <li><b>যেকোনো অ্যাপে বাংলা টাইপিং</b> <span>— Ctrl+Alt+K, ফোনেটিক, সাজেশন, স্নিপেট</span></li>
+    <li><b>ভয়েস টাইপিং</b> <span>— ৫টি সার্ভিস, API key, কোটা, মাইক</span></li>
+    <li><b>AI tools</b> <span>— প্রুফরিড, সমার্থক, বিপরীত শব্দ, অনুবাদ</span></li>
+    <li><b>এনকোডিং কনভার্টার</b> <span>— ANSI / Bijoy / Probhat ↔ ইউনিকোড</span></li>
+    <li><b>সেটিংস</b> <span>— ছয়টি ট্যাবের প্রতিটি অপশন</span></li>
+    <li><b>শর্টকাট তালিকা</b> <span>— ডিফল্ট কী-কম্বিনেশন</span></li>
+    <li><b>সমস্যা সমাধান</b> <span>— সাধারণ সমস্যা ও সমাধান</span></li>
+    <li><b>প্রাইভেসি, ব্যাকআপ ও যোগাযোগ</b> <span>— আপনার ডেটা কোথায় থাকে</span></li>
+  </ol>
+</div>
+
+<h3>এই গাইডে ব্যবহৃত চিহ্ন</h3>
+<table>
+  <tr><th style="width:30%">চিহ্ন</th><th>অর্থ</th></tr>
+  <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">Alt</span> + <span class="kbd">K</span></td>
+      <td>একসাথে চাপতে হবে এমন কী-কম্বিনেশন। আগে Ctrl, তারপর Alt চেপে ধরে K চাপুন।</td></tr>
+  <tr><td><b>⚙</b></td><td>টপ বারের Options (গিয়ার) বাটন — লেআউট, সেটিংস ইত্যাদি।</td></tr>
+  <tr><td><b class="new-badge">নতুন</b></td><td>এই সংস্করণে নতুন যোগ হওয়া বা সম্প্রতি ঠিক করা ফিচার।</td></tr>
+</table>
+
+<div class="callout tip">
+  <b>দ্রুত শুরু:</b> জিপ আনজিপ করুন → <span class="kbd">MK-71 Keyboard.exe</span> চালান →
+  টপ বার পর্দার উপরে দেখা যাবে → <span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">O</span>
+  চেপে অন-স্ক্রিন কিবোর্ড খুলুন। ব্যস, টাইপিং শুরু।
+</div>
+
+<!-- ========================================================== 1. OVERVIEW -->
+<div class="page">
+  <div class="chapter-head">
+    <div class="chapter-num">১</div>
+    <div>
+      <h2>এক নজরে MK-71</h2>
+      <div class="sub">একটি ছোট অ্যাপে বাংলা ও ইংরেজি লেখার পুরো ব্যবস্থা</div>
+    </div>
+  </div>
+
+  <p class="lede">
+    MK-71 Keyboard হলো উইন্ডোজের জন্য একটি ফ্রি অন-স্ক্রিন ও ফোনেটিক কিবোর্ড।
+    এটি আপনার কম্পিউটারে সবসময় হালকা একটি টপ বার হিসেবে থাকে; সেখান থেকেই
+    কিবোর্ড, ভয়েস টাইপিং, সেটিংস আর AI — সব চালু করা যায়।
+  </p>
+
+  <div class="grid2">
+    <div class="card"><b>অন-স্ক্রিন কিবোর্ড</b>
+      <span>মাউস বা টাচ দিয়ে বাংলা, ইংরেজি, চিহ্ন ও ইমোজি টাইপ। চারটি ট্যাব,
+      Shift/Space/Enter/Backspace এবং ক্যারেক্টার গ্রিডের জুম।</span></div>
+    <div class="card"><b>ফোনেটিক বাংলা</b>
+      <span>ইংরেজি অক্ষরে লিখুন — <i>amar</i> লিখলে <b>আমার</b> হবে। Avro-ধাঁচের
+      ফোনেটিক অথবা ফিক্সড (জাতীয়) লেআউট বেছে নিতে পারবেন।</span></div>
+    <div class="card"><b>যেকোনো অ্যাপে বাংলা</b>
+      <span>Chrome, Word, Notepad, WhatsApp — যেখানে কার্সর আছে সেখানেই বাংলা
+      লেখা বসে। আলাদা করে কিছু কপি-পেস্ট করতে হয় না।</span></div>
+    <div class="card"><b>ভয়েস টাইপিং</b>
+      <span>মাইকে বলুন, থামুন — লেখা বসে যাবে। ফ্রি Google Web Speech ছাড়াও
+      Google Cloud, Groq Whisper, Deepgram ও Sarvam AI।</span></div>
+    <div class="card"><b>সাজেশন ও অটো-কারেকশন</b>
+      <span>পরের শব্দ, তারিখ, সময়, বাংলা সংখ্যা, ইমোজি, ক্যালকুলেটর ফল —
+      টাইপ করার সময়েই ছোট চিপ হিসেবে দেখায়।</span></div>
+    <div class="card"><b>এনকোডিং কনভার্টার</b>
+      <span>পুরোনো ANSI/Bijoy, Probhat বা Banglish লেখা এক ক্লিকে ইউনিকোডে
+      রূপান্তর, আবার উল্টোটাও।</span></div>
+    <div class="card"><b>AI প্রুফরিডিং (ঐচ্ছিক)</b>
+      <span>বানান ও যতিচিহ্ন ঠিক, সমার্থক ও বিপরীত শব্দ, বাংলায় অনুবাদ।
+      key না দিলেও লোকাল প্রুফরিড চলবে।</span></div>
+    <div class="card"><b>অফলাইন ও প্রাইভেট</b>
+      <span>কোনো টেলিমেট্রি নেই, অ্যাকাউন্ট নেই। টাইপ করা অক্ষর আপনার
+      কম্পিউটারেই বাংলায় রূপান্তরিত হয়।</span></div>
+  </div>
+
+  <h3>উইন্ডোজ সংস্করণ অনুযায়ী কোন ফাইল</h3>
+  <table>
+    <tr><th style="width:38%">ফাইল</th><th>কাদের জন্য</th></tr>
+    <tr><td><b>Windows_x64_Portable.zip</b></td>
+        <td>৬৪-বিট উইন্ডোজ ১০/১১ (সবচেয়ে সাধারণ)। আনজিপ করেই চালানো যায়,
+        ইনস্টল করতে হয় না।</td></tr>
+    <tr><td><b>Windows_x32_Portable.zip</b></td>
+        <td>পুরোনো ৩২-বিট উইন্ডোজ ৭/৮.১।</td></tr>
+    <tr><td><b>Windows_x64_Installer.zip</b></td>
+        <td>৬৪-বিট, সেটআপ উইজার্ডসহ — Start Menu ও ডেস্কটপ শর্টকাট চায় যারা।</td></tr>
+    <tr><td><b>Windows_x32_Installer.zip</b></td>
+        <td>৩২-বিট, সেটআপ উইজার্ডসহ।</td></tr>
+  </table>
+
+  <div class="callout">
+    <b>একই ফোল্ডারে গাইড:</b> প্রতিটি বিল্ডের ভেতরে এই নির্দেশিকাটি
+    <span style="font-family:Consolas,monospace">MK-71 Keyboard - User Guide.pdf</span>
+    নামে রাখা আছে — অ্যাপের ঠিক পাশেই পাবেন।
+  </div>
+</div>
+
+<!-- ============================================================ 2. INSTALL -->
+<div class="page">
+  <div class="chapter-head">
+    <div class="chapter-num">২</div>
+    <div>
+      <h2>ইনস্টল ও প্রথম চালু</h2>
+      <div class="sub">পোর্টেবল সংস্করণ, ইনস্টলার এবং প্রথমবারের সেটআপ</div>
+    </div>
+  </div>
+
+  <h3>পোর্টেবল সংস্করণ (ইনস্টল ছাড়া)</h3>
+  <ol class="steps">
+    <li>জিপ ফাইলটি ডান-ক্লিক → <b>Extract All</b> দিয়ে খুলুন। জিপের ভেতর থেকেই
+        সরাসরি চালাবেন না — আগে আনজিপ করুন।</li>
+    <li>ফোল্ডারটির ভেতরে <span class="kbd">MK-71 Keyboard.exe</span> আছে।
+        সেটিতে ডাবল-ক্লিক করুন।</li>
+    <li>প্রথমবার Windows SmartScreen সতর্কতা দিলে <b>More info → Run anyway</b>
+        চাপুন। অ্যাপটি unsigned ও ফ্রি, তাই উইন্ডোজ চিনতে চায়।</li>
+    <li>টপ বার পর্দার উপরে-মাঝখানে চলে আসবে এবং ট্রেতে আইকন দেখা যাবে।</li>
+  </ol>
+
+  <div class="callout">
+    <b>পোর্টেবল মানে কী?</b> আপনার সব সেটিংস, শব্দভাণ্ডার ও API key
+    <span style="font-family:Consolas,monospace">data</span> ফোল্ডারে জমা হয় —
+    ঠিক অ্যাপের পাশেই। ফোল্ডারটি USB-তে করে অন্য পিসিতে নিলে সবকিছু সাথে যাবে।
+    ফোল্ডারটি মুছলে সেটিংসও মুছে যাবে, তাই মাঝে মাঝে ব্যাকআপ রাখুন।
+  </div>
+
+  <h3>ইনস্টলার দিয়ে</h3>
+  <ol class="steps">
+    <li><b>Windows_x64_Installer.zip</b> আনজিপ করুন → <b>MK-71 Keyboard Setup.exe</b> চালান।</li>
+    <li>কোথায় ইনস্টল হবে বেছে নিন (ডিফল্ট ঠিক আছে) → <b>Install</b>।</li>
+    <li>শেষ হলে Start Menu/ডেস্কটপ শর্টকাট পাবেন। ইনস্টলের পর সেটিংস থাকে
+        <span style="font-family:Consolas,monospace">%APPDATA%\MK-71 Keyboard</span>
+        (পোর্টেবল ফ্ল্যাগ না থাকলে)।</li>
+  </ol>
+
+  <h3>প্রথমবার যা করবেন</h3>
+  <table>
+    <tr><th style="width:34%">কাজ</th><th>কীভাবে</th></tr>
+    <tr><td>ভাষা বাছুন</td><td>টপ বারের <b>English / বাংলা</b> বাটনে ক্লিক, অথবা
+        <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">L</span>।</td></tr>
+    <tr><td>অন-স্ক্রিন কিবোর্ড দেখুন</td><td>টপ বারের কিবোর্ড আইকন, অথবা
+        <span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">O</span>।</td></tr>
+    <tr><td>অন্য অ্যাপে বাংলা চালু</td><td><span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">K</span>
+        চাপুন (টপ বারে বাংলা/English বাটনের পাশের কলম আইকনও আছে)।</td></tr>
+    <tr><td>মাইক পরীক্ষা</td><td>টপ বারের মাইকে ডান-ক্লিক → <b>Test microphone…</b>,
+        অথবা ট্রে মেনু → <b>Mic Options → Test microphone…</b>।</td></tr>
+    <tr><td>ভয়েস সার্ভিস বাছুন</td><td>Settings → <b>Speech to Text</b> → Recognition service।</td></tr>
+    <tr><td>Windows-এ চালু রাখুন</td><td>Settings → General → <b>Start with Windows</b>।</td></tr>
+  </table>
+
+  <div class="callout warn">
+    <b>উইন্ডোজ ৭ / ৮.১:</b> Visual C++ 2015–2019 Redistributable এবং KB2999226
+    আপডেট ইনস্টল থাকা দরকার, নইলে অ্যাপ চালু হবে না। উইন্ডোজ আপডেট চালু রাখলেই
+    এগুলো সাধারণত আসে।
+  </div>
+</div>
+
+<!-- ============================================================== 3. TOPBAR -->
+<div class="page">
+  <div class="chapter-head">
+    <div class="chapter-num">৩</div>
+    <div>
+      <h2>টপ বার</h2>
+      <div class="sub">পর্দার উপরে-মাঝখানে থাকা ছোট বারটিই অ্যাপের নিয়ন্ত্রণ কেন্দ্র</div>
+    </div>
+  </div>
+
+  <p>টপ বার সবসময় পর্দার উপরের মাঝখানে খোলে, অন্য সব উইন্ডোর উপরে থাকে এবং
+  মাউস সরিয়ে নিলে ছোট হয়ে যায়। বারটি সরাতে বা বন্ধ করতে ভয় পাবেন না — ট্রে
+  আইকন থেকে <b>Restore top bar</b> দিয়ে যেকোনো সময় ফিরিয়ে আনতে পারবেন।</p>
+
+  <table>
+    <tr><th style="width:20%">বাটন</th><th style="width:34%">ক্লিক করলে</th><th>ডান-ক্লিক / টিপস</th></tr>
+    <tr><td><b>🎙 মাইক</b></td><td>ভয়েস টাইপিং চালু/বন্ধ
+        (<span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">V</span>)</td>
+        <td>ডান-ক্লিকে মাইক যন্ত্র, Recognition language আর Test microphone।</td></tr>
+    <tr><td><b>English / বাংলা</b></td><td>ভাষা বদল
+        (<span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">L</span>)</td>
+        <td>ডান-ক্লিকে সব বাংলা লেআউট ও ইংরেজি মোডের তালিকা।</td></tr>
+    <tr><td><b>কলম / টাইপিং মোড</b></td><td>সাজেশন উইন্ডো সাময়িকভাবে থামানো বা দেখানো</td>
+        <td>পাসওয়ার্ড লেখার সময় কাজে লাগে।</td></tr>
+    <tr><td><b>কিবোর্ড আইকন</b></td><td>অন-স্ক্রিন কিবোর্ড দেখানো/লুকানো</td>
+        <td><span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">O</span></td></tr>
+    <tr><td><b>কাগজের আইকন</b></td><td>Document Pad — ছোট নোট এডিটর</td>
+        <td>লেখা সেভ, খোঁজা ও শব্দ সংখ্যা গোনা যায়।</td></tr>
+    <tr><td><b>⚙ Options</b></td><td>লেআউট, এনকোডিং, সেটিংস, About, Help</td>
+        <td>সব প্রধান ফিচারের দরজা এখানেই। নতুন ভার্সন এলে গিয়ারে ছোট হলুদ ডট বসে।</td></tr>
+    <tr><td><b>অ্যাপ লোগো</b></td><td>App Menu — ট্রে, Transparency, Restart, Exit</td>
+        <td>নতুন রিলিজ এলে <b>Update Available</b> আসে; চাপলে GitHub-এর ডাউনলোড পেজ খোলে।
+        বন্ধ করতে <b>Exit</b>।</td></tr>
+  </table>
+
+  <h3>টপ বার হারিয়ে গেলে</h3>
+  <ol class="steps">
+    <li>ট্রে (Taskbar-এর ডান দিকের ছোট আইকন) থেকে MK-71 আইকনে ক্লিক করুন।</li>
+    <li><b>Restore top bar</b> চাপুন।</li>
+    <li>ট্রে আইকন দেখা না গেলে Taskbar-এর <b>^</b> চিহ্নে ক্লিক করে লুকানো আইকন দেখুন।</li>
+  </ol>
+
+  <div class="callout tip">
+    <b>সেটিংসে মাউস-হুইল:</b> সেটিংস পেজ স্ক্রল করার সময় মাউসের চাকা দিয়ে কোনো
+    মান বদলে যাবে না। মান বদলাতে ওই কন্ট্রোলে ক্লিক করে তারপর চাকা ঘোরান, নইলে
+    তীর/কীবোর্ড দিয়ে বদলান। এটি ভুলে ভুল সেটিং বদলে যাওয়া আটকায়।
+  </div>
+</div>
+
+<!-- ============================================================ 4. KEYBOARD -->
+<div class="page">
+  <div class="chapter-head">
+    <div class="chapter-num">৪</div>
+    <div>
+      <h2>অন-স্ক্রিন কিবোর্ড</h2>
+      <div class="sub">মাউস বা টাচ দিয়ে লেখার সম্পূর্ণ কিবোর্ড</div>
+    </div>
+  </div>
+
+  <p class="lede">
+    খুলতে: টপ বারের কিবোর্ড আইকন, ⚙ → <b>On-screen keyboard</b>, অথবা
+    <span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">O</span>।
+  </p>
+
+  <h3>চারটি ট্যাব</h3>
+  <table>
+    <tr><th style="width:26%">ট্যাব</th><th>কী আছে</th></tr>
+    <tr><td><b>English</b></td><td>সাধারণ QWERTY — বড়/ছোট হাতের অক্ষর, সংখ্যা ও চিহ্ন।</td></tr>
+    <tr><td><b>Bangla</b></td><td>বাংলা বর্ণমালা, কার-চিহ্ন ও যুক্তাক্ষরের কী।</td></tr>
+    <tr><td><b>Characters</b></td><td>বিরামচিহ্ন, মুদ্রা, গণিত ও বিশেষ চিহ্নের ঘন গ্রিড।</td></tr>
+    <tr><td><b>Emoji</b></td><td>ইমোজির গ্রিড — ক্লিক করলেই কার্সরে বসে।</td></tr>
+  </table>
+
+  <h3>লেখা ও সম্পাদনা</h3>
+  <ul>
+    <li>যেকোনো কী-তে ক্লিক করলে অক্ষরটি কার্সরের জায়গায় বসে।</li>
+    <li><b>Shift</b> চেপে রাখলে বড় হাতের অক্ষর/উপরের চিহ্ন, ছেড়ে দিলে আবার ছোট হাতের।</li>
+    <li><b>Space</b>, <b>Enter</b>, <b>Backspace</b> এবং <b>তীরচিহ্ন</b> স্বাভাবিক কিবোর্ডের মতোই কাজ করে।</li>
+    <li><b>Characters</b> ও <b>Emoji</b> ট্যাবে <b>−</b> / <b>+</b> দিয়ে গ্রিড ছোট-বড় করা যায়।</li>
+    <li>উপরের <b>≡</b> মেনু থেকে শব্দ, স্নিপেট, সেটিংস, Help, Restart ও Exit পাওয়া যায়।</li>
+    <li><b>×</b> চাপলে কিবোর্ড লুকায়, কিন্তু অ্যাপ ট্রেতে চালু থাকে।</li>
+    <li><b>Voice</b> বাটন দিয়ে সরাসরি ভয়েস টাইপিং শুরু করা যায়।</li>
+  </ul>
+
+  <h3>সাজেশন বার</h3>
+  <p>কিবোর্ডের উপরে সরু একটি বার থাকে যেখানে প্রস্তাবিত শব্দ/সংখ্যা/তারিখ
+  দেখায়। প্রথম অক্ষর লেখার সাথে সাথেই প্রস্তাব আসে, তাই এক অক্ষরেও তালিকা
+  দেখা যায়। কোনো প্রস্তাবে ক্লিক করলেই সেটি লেখায় বসে যায়। প্রস্তাবের উপর
+  ডান-ক্লিক করলে <b>Add to my words</b> (শব্দভাণ্ডারে যোগ) বা
+  <b>Remove from my words</b> পাওয়া যায়।</p>
+
+  <div class="callout">
+    <b>উইন্ডো সরানো:</b> কিবোর্ড উইন্ডোটি পর্দার যেকোনো জায়গায় সরানো যায়।
+    মনিটর বদলালে বা রেজোলিউশন কমালে উইন্ডোটি নিজে থেকেই পর্দার ভেতরে এসে যায়,
+    তাই কখনো স্ক্রিনের বাইরে হারিয়ে যায় না।
+  </div>
+
+  <div class="callout tip">
+    <b>টিপস:</b> দ্রুত বাংলা লিখতে ফিজিক্যাল কিবোর্ডই বেশি সুবিধাজনক (অধ্যায় ৫)।
+    অন-স্ক্রিন কিবোর্ড বেশি কাজে লাগে টাচ স্ক্রিন, ভাঙা কীবোর্ড, অথবা নতুন
+    লেআউট শেখার সময়।
+  </div>
+</div>
+
+<!-- ========================================================= 5. TYPING -->
+<div class="page">
+  <div class="chapter-head">
+    <div class="chapter-num">৫</div>
+    <div>
+      <h2>যেকোনো অ্যাপে বাংলা টাইপিং</h2>
+      <div class="sub">ফিজিক্যাল কিবোর্ডে ইংরেজি অক্ষর লিখুন, বাংলা বসবে</div>
+    </div>
+  </div>
+
+  <h3>চালু করা</h3>
+  <ol class="steps">
+    <li>টপ বারের <b>বাংলা</b> মোড বেছে নিন (বা <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">L</span>)।</li>
+    <li>টপ বারের কলম/টাইপিং বাটনে ক্লিক করুন, অথবা
+        <span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">K</span> চাপুন —
+        বাংলা টাইপিং চালু হবে।</li>
+    <li>Chrome, Word, Notepad বা WhatsApp-এ কার্সর রাখুন এবং ইংরেজি অক্ষরে লিখুন।</li>
+  </ol>
+
+  <h3>ফোনেটিক উদাহরণ</h3>
+  <table>
+    <tr><th style="width:50%">আপনি লিখবেন</th><th>বসবে</th></tr>
+    <tr><td>amar</td><td>আমার</td></tr>
+    <tr><td>tumi</td><td>তুমি</td></tr>
+    <tr><td>bangla</td><td>বাংলা</td></tr>
+    <tr><td>kemon</td><td>কেমন</td></tr>
+    <tr><td>dorkar</td><td>দরকার</td></tr>
+    <tr><td>kkhoma</td><td>ক্ষমা</td></tr>
+  </table>
+  <p class="small">লেআউট বদলাতে: ⚙ → <b>Layouts</b> → Avro phonetic (Custom) বা National (Jatiya)।</p>
+
+  <h3>যা যা খেয়াল রাখবেন</h3>
+  <ul>
+    <li><b>Ctrl / Alt / Windows শর্টকাট</b> সবসময় আগের মতোই কাজ করে — Ctrl+C, Ctrl+V,
+        Alt+Tab কিছুই আটকায় না।</li>
+    <li>বাংলা লেখা বন্ধ করতে <span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">X</span>
+        (panic)। আবার চালু করতে Ctrl+Alt+K।</li>
+    <li>কোনো অ্যাপে সরাসরি লেখা না গেলে MK-71 নিজেই কপি-পেস্ট পথ ব্যবহার করে,
+        তাই Chrome, Electron অ্যাপ ও পুরোনো Edit/RichEdit বক্সেও লেখা যায়।</li>
+    <li>Settings → General → <b>Language preference for each window</b> চালু থাকলে
+        প্রতিটি অ্যাপ আগেরবার যে ভাষায় লিখেছিলেন সেটিই মনে রাখে।</li>
+  </ul>
+
+  <h3>সাজেশন ও অটো-কারেকশন</h3>
+  <table>
+    <tr><th style="width:34%">ফিচার</th><th>কীভাবে কাজ করে</th></tr>
+    <tr><td><b>কার্সরের পাশে সাজেশন</b></td><td>টাইপ করার সময় ছোট তালিকা দেখা যায়; ক্লিক করলে
+        শব্দটি বসে ও আগের আধা-লেখা মুছে যায়।</td></tr>
+    <tr><td><b>এক অক্ষরেই সাজেশন</b> <span class="new-badge">নতুন</span></td>
+        <td>প্রথম অক্ষর লেখার সাথে সাথেই শব্দের প্রস্তাব আসে; ছোট ও বেশি ব্যবহৃত
+        শব্দ আগে দেখায়।</td></tr>
+    <tr><td><b>Pin suggestion window</b></td><td>প্রতিটি শব্দ শেষে তালিকা লুকিয়ে না গিয়ে পর্দায় থাকে।</td></tr>
+    <tr><td><b>Auto Correction</b></td><td>স্পেস চাপলে স্পষ্ট ভুল বানান ঠিক করে — যখন একটিমাত্র শব্দ মেলে।</td></tr>
+    <tr><td><b>Tab / Arrow / Function</b></td><td>সাজেশন দেখানোর সময় এই কী দিয়ে প্রস্তাব বেছে নেওয়া যায়।</td></tr>
+    <tr><td><b>Trigger</b></td><td>Enter / Selection / Space — কোনটি চাপলে নির্বাচিত প্রস্তাব বসবে।</td></tr>
+    <tr><td><b>ক্যালকুলেটর</b></td><td><i>12+5*2</i> লিখলে প্রস্তাব হিসেবে 22 (বাংলায় ২২) আসে।</td></tr>
+    <tr><td><b>তারিখ ও সময়</b></td><td>আজকের তারিখ/এখনকার সময় সাজেশন হিসেবে আসে; ফরম্যাট
+        Settings → General → Date format থেকে বদলানো যায়।</td></tr>
+    <tr><td><b>Remember recent words</b></td><td>সাম্প্রতিক শব্দ/বাক্য আগে প্রস্তাব হিসেবে আসে।</td></tr>
+  </table>
+
+  <h3>স্নিপেট (শর্টকাট লেখা)</h3>
+  <p>⚙ → <b>Snippets</b> অথবা ট্রে মেনু → Word Manager → Snippets। একটি ট্রিগার
+  (যেমন <b>;sig</b>) আর তার সম্পূর্ণ লেখা সেভ করুন। পরে ট্রিগার লিখলে সাজেশন
+  থেকে পুরো লেখাটি বসে যাবে। স্নিপেটে <span class="kbd">;d</span> ট্রিগারে
+  <i>আজ {date} — {day}</i> লিখলে তারিখ ও বার নিজে থেকেই বসে যায়; সময়ের জন্য
+  <i>{time}</i>, নিজের ফরম্যাটের জন্য <i>{date:%d %B %Y}</i>।</p>
+
+  <h3>নিজের শব্দভাণ্ডার</h3>
+  <p>অপরিচিত নাম বা শব্দ বারবার লিখতে হলে ট্রে মেনু → <b>Word Manager → Personal words</b>
+  থেকে যোগ করুন। এরপর সেটি সাজেশন ও অটো-কারেকশনে অগ্রাধিকার পাবে। History
+  ট্যাবে আগের লেখা দেখতে ও আবার ব্যবহার করতে পারবেন।</p>
+</div>
+
+<!-- ============================================================ 6. VOICE -->
+<div class="page">
+  <div class="chapter-head">
+    <div class="chapter-num">৬</div>
+    <div>
+      <h2>ভয়েস টাইপিং</h2>
+      <div class="sub">বলুন, থামুন — লেখা বসে যাবে</div>
+    </div>
+  </div>
+
+  <p class="lede">
+    শুরু করতে: টপ বারের মাইক, অন-স্ক্রিন কিবোর্ডের <b>Voice</b> বাটন, অথবা
+    <span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">V</span>।
+    প্রথমবার Windows মাইক্রোফোনের অনুমতি চাইলে <b>Allow</b> দিন।
+  </p>
+
+  <h3>দুটি ধরন</h3>
+  <table>
+    <tr><th style="width:40%">Hold-to-Type (সুপারিশ)</th><th>স্বাভাবিক মোড</th></tr>
+    <tr><td>বাম <span class="kbd">Ctrl</span> চেপে ধরে বলুন, কথা শেষ হলে Ctrl ছেড়ে দিন।
+        ছেড়েই লেখা বসে যায়। দ্রুত Ctrl ট্যাপ উপেক্ষা করা হয়, তাই Ctrl+C কাজ করে।</td>
+        <td>মাইক/হটকি চেপে বলা শুরু করুন, কথা থামলে অ্যাপ নিজেই থেমে লেখা বসায়।
+        নীরবতার সময় ও সর্বোচ্চ দৈর্ঘ্য Settings থেকে ঠিক করা যায়।</td></tr>
+  </table>
+
+  <h3>কোন সার্ভিস, কী লাগে</h3>
+  <table>
+    <tr><th style="width:24%">সার্ভিস</th><th style="width:22%">কী লাগবে</th><th style="width:20%">ফ্রি সুবিধা</th><th>বাংলার মান</th></tr>
+    <tr><td><b>Google Web Speech</b><br><span class="small">ডিফল্ট</span></td>
+        <td>কিছুই না</td><td>হ্যাঁ (unofficial)</td><td>মাঝারি — শুরু করার জন্য ভালো</td></tr>
+    <tr><td><b>Google Cloud</b></td><td>API key + billing চালু</td><td>মাসে ৬০ মিনিট</td>
+        <td>ভালো</td></tr>
+    <tr><td><b>Whisper / OpenAI-compatible</b><br><span class="small">Groq বা OpenAI</span></td>
+        <td>endpoint + key</td><td>Groq-এ দৈনিক ফ্রি কোটা</td><td>খুব ভালো</td></tr>
+    <tr><td><b>Deepgram (nova-3)</b></td><td>API key</td><td>এককালীন $২০০ ক্রেডিট</td>
+        <td>খুব ভালো</td></tr>
+    <tr><td><b>Sarvam AI (saarika)</b></td><td>API key</td><td>এককালীন ₹১০০ ক্রেডিট</td>
+        <td>সবচেয়ে ভালো, বাংলা-ইংরেজি মেশানোতেও</td></tr>
+  </table>
+
+  <h3>API key কোথায় বসাবেন <span class="new-badge">নতুন</span></h3>
+  <ol class="steps">
+    <li>Settings → <b>Speech to Text</b> → <b>Recognition service</b> → Service থেকে সার্ভিস বাছুন।</li>
+    <li>নিচে সেই সার্ভিসের <b>API key</b> বক্সে key পেস্ট করুন।</li>
+    <li><b>Apply</b> → <b>OK</b>। key সাথে সাথেই কার্যকর।</li>
+    <li>কোন key কোথা থেকে আনবেন তা ধাপে ধাপে দেখতে <b>How to set API key</b> বাটনে ক্লিক করুন।
+        ডায়ালগে প্রতিটি সার্ভিসের সেকশন আছে, ক্লিকেবল সাইট লিংকসহ; আপনি যে সার্ভিস
+        সিলেক্ট করেছেন সেখানে এটি নিজেই স্ক্রল হয়ে যায়।</li>
+  </ol>
+
+  <div class="callout tip">
+    <b>কোটা শেষ হলে কী হয়?</b> অ্যাপ নিজেই ফ্রি Google Web Speech-এ নেমে আসে, ফলে
+    লেখা পাওয়া বন্ধ হয় না। Groq-এর কোটা পরদিন ০০:০১-এ, Google Cloud-এর কোটা
+    পরের মাসের ১ তারিখে ফিরে এলে অ্যাপ নিজে থেকেই আবার উন্নত সার্ভিসে ফিরে যায়।
+    Deepgram/Sarvam-এর এককালীন ক্রেডিট শেষ হলে প্রতিদিন একবার আবার চেষ্টা করা হয়।
+    Settings → Speech to Text-এ উপরে কবে ফিরবে তা লেখা থাকে। আবার app বন্ধ-চালু করলেও
+    এই হিসাব ঠিক থাকে।
+  </div>
+
+  <h3>মাইক ও রিকগনিশন ভাষা</h3>
+  <ul>
+    <li>টপ বারের মাইকে ডান-ক্লিক → <b>Microphone</b> থেকে ইনপুট যন্ত্র বাছুন;
+        <b>System default</b> রাখলে উইন্ডোজ সিদ্ধান্ত নেবে।</li>
+    <li><b>Test microphone…</b> ডায়ালগে মিটার নড়লে মাইক ঠিক আছে। সমতল মিটার মানে
+        মাইক mute, ব্লকড বা খোলা হয়নি।</li>
+    <li><b>Recognition language</b>: বাংলা (বাংলাদেশ) / বাংলা (ভারত), অথবা
+        English (US/UK/Australia/India)।</li>
+    <li>Settings-এ <b>Speech Map</b> বাটন দিয়ে আপনার উচ্চারণে বারবার ভুল শোনা শব্দ
+        ঠিক করে দিতে পারেন।</li>
+    <li><b>Synchronize Recognized Speech</b> চালু থাকলে ভয়েস শেষ হওয়ার আগে অন্য
+        অ্যাপে ক্লিক করলেও লেখা সেই উইন্ডোতেই বসে।</li>
+    <li><b>Adjust for ambient noise</b> চালু থাকলে ফ্যান/রাস্তার শব্দকে কথা ভাবা হয় না।</li>
+  </ul>
+
+  <div class="callout warn">
+    <b>ইন্টারনেট দরকার:</b> ভয়েস টাইপিং সবসময় অনলাইন সার্ভিসে চলে। ইন্টারনেট
+    না থাকলে বাকি সব (টাইপিং, কনভার্টার, লোকাল প্রুফরিড) চলবে, শুধু ভয়েস বন্ধ থাকবে।
+  </div>
+</div>
+
+<!-- =============================================================== 7. AI -->
+<div class="page">
+  <div class="chapter-head">
+    <div class="chapter-num">৭</div>
+    <div>
+      <h2>AI tools</h2>
+      <div class="sub">বানান ঠিক, সমার্থক শব্দ, বিপরীত শব্দ ও অনুবাদ</div>
+    </div>
+  </div>
+
+  <p class="lede">
+    খুলতে: <b>Settings → AI → Open AI tools…</b>, ট্রে মেনু → Options →
+    <b>AI tools…</b>, অথবা
+    <span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">A</span>।
+  </p>
+
+  <h3>চারটি কাজ</h3>
+  <table>
+    <tr><th style="width:26%">Action</th><th>কী করে</th></tr>
+    <tr><td><b>Proofread</b></td><td>বানান, স্পেস ও যতিচিহ্ন ঠিক করে। key/endpoint না থাকলেও
+        লোকাল ইঞ্জিন দিয়ে চলে — সম্পূর্ণ অফলাইনে।</td></tr>
+    <tr><td><b>Synonyms</b></td><td>একই অর্থের শব্দের তালিকা, প্রতি লাইনে একটি।</td></tr>
+    <tr><td><b>Antonyms</b></td><td>বিপরীত অর্থের শব্দের তালিকা।</td></tr>
+    <tr><td><b>Translate</b></td><td>ইংরেজি লেখাকে বাংলায় অনুবাদ করে।</td></tr>
+  </table>
+
+  <h3>ব্যবহার</h3>
+  <ol class="steps">
+    <li>উপরের বড় বক্সে লেখা দিন। বাইরের কোনো অ্যাপ থেকে লেখা নিতে <b>Paste</b> ব্যবহার করুন।</li>
+    <li><b>Action</b> থেকে কাজ বাছুন।</li>
+    <li><b>Run</b> চাপুন। ফল নিচের বক্সে আসবে।</li>
+    <li><b>Copy</b> দিয়ে কপি করুন, অথবা <b>Insert into app</b> দিয়ে যে অ্যাপে কাজ করছিলেন
+        সেখানেই বসিয়ে দিন।</li>
+  </ol>
+
+  <h3>key সেট করা (ঐচ্ছিক)</h3>
+  <ul>
+    <li><b>Gemini (সহজ পথ):</b> <a href="https://aistudio.google.com/apikey">aistudio.google.com/apikey</a>
+        → Create API key → key কপি → Settings → <b>General</b> ট্যাবের <b>Gemini API</b> বক্সে
+        পেস্ট → Apply। পাশের <b>Get API Key</b> বাটন সরাসরি সাইটে নিয়ে যায়।</li>
+    <li><b>অন্য OpenAI-compatible সার্ভিস:</b> Settings → <b>AI</b> ট্যাবে endpoint, model
+        ও API key দিন (যেমন <span style="font-family:Consolas,monospace">https://api.openai.com/v1</span>,
+        model <span style="font-family:Consolas,monospace">gpt-4o-mini</span>)।</li>
+    <li>key শুধু আপনার লোকাল সেটিংসে থাকে; অন্য কোথাও যায় না।</li>
+  </ul>
+
+  <div class="callout">
+    <b>অফলাইন:</b> key না দিলেও <b>Proofread</b> কাজ করে — অতিরিক্ত স্পেস, দাঁড়ির
+    আগে-পরে স্পেস এবং বাক্যের শেষে দাঁড়ি বসানো হয়। বাকি তিনটি কাজের জন্য
+    endpoint/key দরকার।
+  </div>
+</div>
+
+<!-- ======================================================= 8. CONVERTER -->
+<div class="page">
+  <div class="chapter-head">
+    <div class="chapter-num">৮</div>
+    <div>
+      <h2>এনকোডিং কনভার্টার</h2>
+      <div class="sub">পুরোনো বাংলা এনকোডিং ↔ আধুনিক ইউনিকোড</div>
+    </div>
+  </div>
+
+  <p class="lede">
+    খুলতে: <span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">E</span>,
+    অথবা ⚙ → <b>Encoding Converter</b>। উপরে লেখা দিন, নিচে রূপান্তরিত ফল পাবেন।
+  </p>
+
+  <h3>যে রূপান্তরগুলো আছে</h3>
+  <ul>
+    <li><b>ANSI / Bijoy → Unicode</b> — পুরোনো বিজয় লেখা আধুনিক বাংলায়।</li>
+    <li><b>Probhat → Unicode</b> — প্রভাত কী-বোর্ডের লেখা।</li>
+    <li><b>Unicode → ANSI / Bijoy</b> — উল্টো পথ, পুরোনো সফটওয়্যারে দেওয়ার জন্য।</li>
+    <li><b>Banglish</b> ও <b>Calligraphy/Bold</b> স্টাইল ম্যাপ।</li>
+  </ul>
+
+  <h3>ধাপে ধাপে</h3>
+  <ol class="steps">
+    <li><b>Paste</b> চেপে ক্লিপবোর্ডের লেখা উপরের বক্সে আনুন, অথবা সরাসরি লিখুন/টাইপ করুন।</li>
+    <li><b>Map</b> থেকে সঠিক রূপান্তর বাছুন।</li>
+    <li><b>Convert</b> চাপুন। ফল নিচের বক্সে আসবে।</li>
+    <li><b>Copy converted</b> দিয়ে ফল কপি করে যেখানে দরকার পেস্ট করুন।</li>
+    <li>ভুল হলে <b>Swap</b> দিয়ে দিক উল্টে দেখুন, অথবা <b>Clear</b> দিয়ে নতুন করে শুরু করুন।</li>
+  </ol>
+
+  <div class="callout tip">
+    <b>ফন্ট:</b> উপরের বা নিচের বক্সে ডান-ক্লিক করে ফন্ট পরিবার ও আকার বদলাতে পারবেন।
+    <span class="kbd">Ctrl</span>+<span class="kbd">+</span> / <span class="kbd">Ctrl</span>+<span class="kbd">−</span>
+    দিয়েও আকার বদলায়। কনভার্টার সম্পূর্ণ অফলাইনে চলে।
+  </div>
+</div>
+
+<!-- ========================================================== 9. SETTINGS -->
+<div class="page">
+  <div class="chapter-head">
+    <div class="chapter-num">৯</div>
+    <div>
+      <h2>সেটিংস</h2>
+      <div class="sub">ছয়টি ট্যাব — কোনটিতে কী আছে</div>
+    </div>
+  </div>
+
+  <p>খুলতে: ⚙ → <b>Settings</b>, ট্রে মেনু → Options → Settings, অথবা "?" বাটনের পাশের
+  সেটিংস এন্ট্রি। নিচে <b>OK</b> = সেভ করে বন্ধ, <b>Apply</b> = সেভ করে খোলা রাখে,
+  <b>Cancel</b> = না সেভ করে বন্ধ, <b>Restore Defaults</b> = সব ডিফল্টে ফেরা।</p>
+
+  <h3>General</h3>
+  <ul>
+    <li><b>Enable Features:</b> Snippets, সাজেশন পপআপ, Pin, Auto Correction, Start with Windows, Show tray icon।</li>
+    <li><b>Suggest for:</b> বাংলা, English, ইমোজি, সংখ্যা, তারিখ, সময়, আগের/পরের শব্দ, বানান পরীক্ষা, ক্যালকুলেটর।</li>
+    <li><b>Prediction:</b> কতটি সাজেশন দেখাবে (৩–১২), সাম্প্রতিক শব্দ মনে রাখা।</li>
+    <li><b>Typing mode:</b> বাংলা বা English; পাশে শর্টকাটের সারসংক্ষেপ।</li>
+    <li><b>Key to select a word:</b> Tab / Arrow / Function।</li>
+    <li><b>Remember:</b> ফোনেটিকের নির্বাচিত শব্দ, প্রতি উইন্ডোর ভাষা, সাম্প্রতিক শব্দ/বাক্যের সংখ্যা।</li>
+    <li><b>Trigger completion by:</b> Enter / Selection / Space।</li>
+    <li><b>Date format:</b> ইংরেজি ও বাংলার জন্য আলাদা প্যাটার্ন (যেমন <span style="font-family:Consolas,monospace">%d %B %Y</span>)।</li>
+    <li><b>Gemini API:</b> key বসানোর বক্স ও <b>Get API Key</b> বাটন।</li>
+  </ul>
+
+  <h3>Speech to Text</h3>
+  <ul>
+    <li>Hold-to-Type, ambient noise, Synchronize Recognized Speech।</li>
+    <li>Record Adjustments: Energy Threshold, Non speaking duration, Timeout, Maximum clip — প্রতিটির পাশে Reset।</li>
+    <li>Recognition service, <b>How to set API key</b> <span class="new-badge">নতুন</span>, কোটা নোট।</li>
+    <li>সার্ভিসভেদে API key/endpoint/model বক্স — শুধু নির্বাচিত সার্ভিসেরটিই দেখায়।</li>
+    <li>Windows microphone settings বাটন (Windows-এর প্রাইভেসি পেজ খোলে)।</li>
+  </ul>
+
+  <h3>Appearance</h3>
+  <ul>
+    <li><b>Colour theme</b> — <b>White</b> (ডিফল্ট) / Dark, এক ক্লিকেই পুরো কিবোর্ডের রং বদলায়।</li>
+    <li><b>Window opacity</b> — স্লাইডারের পাশে শতকরা মান দেখায়। বাড়ালে (৮৫–১০০%) কিবোর্ডের প্যানেল,
+        টপ স্ট্রিপ ও সাজেশন বার আরও সলিড হয়; কমালে (৬০–৮৪%) পেছনের ডেস্কটপ দেখা যায়।
+        কী-ক্যাপ সবসময় সলিড থাকে, তাই অক্ষর কখনো অস্পষ্ট হয় না। টপ বারের ট্রান্সপারেন্সি
+        আলাদা — টপ বারের অ্যাপ মেনু → Transparency (ডিফল্ট ৬১%)।</li>
+    <li>ফন্ট, ফন্ট সাইজ ও কী-এর উচ্চতা আর Appearance-এ নেই — অ্যাপের নির্ধারিত মানেই
+        থাকে, তাই ভুল করে বদলে কিবোর্ড এলোমেলো হওয়ার সুযোগ নেই। কনভার্টার/এডিটরের
+        লেখার ফন্ট বদলাতে চাইলে টেক্সট বক্সে ডান-ক্লিক করুন।</li>
+    <li>থিম বদলালে সাথে সাথে প্রিভিউ দেখা যায়; Cancel করলে আগের থিমে ফিরে আসে।</li>
+  </ul>
+
+  <h3>AI</h3>
+  <ul>
+    <li>OpenAI-compatible endpoint, Model, API key — ঐচ্ছিক।</li>
+    <li>খালি রাখলে Proofread লোকাল ইঞ্জিনে চলবে; বাকি AI কাজ কাজ করবে না।</li>
+  </ul>
+
+  <h3>Shortcuts</h3>
+  <ul>
+    <li>প্রতিটি কাজের পাশে <b>Set</b> → কাঙ্ক্ষিত কী-কম্বিনেশন চাপুন।</li>
+    <li><b>Backspace</b> = শর্টকাট মুছে ফেলা, <b>Esc</b> = বাতিল।</li>
+    <li>একই কম্বিনেশন দুই কাজে দিলে অ্যাপ সতর্ক করে এবং আগেরটি রাখে।</li>
+    <li>এই শর্টকাট অন্য অ্যাপ চালু থাকলেও কাজ করে।</li>
+  </ul>
+
+  <h3>About MK-71</h3>
+  <ul>
+    <li>লোগো, সংস্করণ, বিল্ড তারিখ, ওয়েবসাইট/যোগাযোগের লিংক।</li>
+    <li>উপরের ডান দিকের <b>?</b> বাটনে ক্লিক করলে Github Site, Telegram ও Email-এর মেনু খোলে।</li>
+  </ul>
+
+  <div class="callout warn">
+    <b>মাউস-হুইল:</b> পেজ স্ক্রল করতে গিয়ে ভুল করে কোনো মান বদলাবে না। মান বদলাতে
+    কন্ট্রোলে ক্লিক করে চাকা ঘোরান, নয়তো তীর/টাইপিং ব্যবহার করুন।
+  </div>
+</div>
+
+<!-- ======================================================== 10. SHORTCUTS -->
+<div class="page">
+  <div class="chapter-head">
+    <div class="chapter-num">১০</div>
+    <div>
+      <h2>শর্টকাট তালিকা</h2>
+      <div class="sub">ডিফল্ট কী-কম্বিনেশন (Settings → Shortcuts থেকে বদলানো যায়)</div>
+    </div>
+  </div>
+
+  <table>
+    <tr><th style="width:38%">শর্টকাট</th><th>কাজ</th></tr>
+    <tr><td><span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">V</span></td>
+        <td>ভয়েস টাইপিং চালু/বন্ধ</td></tr>
+    <tr><td><span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">K</span></td>
+        <td>অন্য অ্যাপে বাংলা টাইপিং চালু/বন্ধ</td></tr>
+    <tr><td><span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">L</span></td>
+        <td>বাংলা ↔ English বদল</td></tr>
+    <tr><td><span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">O</span></td>
+        <td>অন-স্ক্রিন কিবোর্ড দেখানো/লুকানো</td></tr>
+    <tr><td><span class="kbd">Ctrl</span>+<span class="kbd">Shift</span>+<span class="kbd">E</span></td>
+        <td>এনকোডিং কনভার্টার</td></tr>
+    <tr><td><span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">A</span></td>
+        <td>AI tools (প্রুফরিড, সমার্থক, অনুবাদ)</td></tr>
+    <tr><td><span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">X</span></td>
+        <td>বাংলা টাইপিং সাথে সাথে বন্ধ (panic)</td></tr>
+  </table>
+
+  <div class="callout">
+    <b>শর্টকাট বদলানো:</b> Settings → Shortcuts → যে কাজের পাশে <b>Set</b> আছে সেটি
+    চাপুন → নতুন কম্বিনেশন চাপুন → Apply। খালি করতে Backspace, বাতিল করতে Esc।
+  </div>
+
+  <h3>উইন্ডোজের নিজস্ব শর্টকাট</h3>
+  <p>MK-71 কখনো Ctrl, Alt বা Windows-ভিত্তিক কোনো শর্টকাট আটকায় না — Ctrl+C/V/Z,
+  Alt+Tab, Win+D ইত্যাদি সবই আগের মতো কাজ করে, বাংলা টাইপিং চালু থাকলেও।</p>
+
+  <h3>ট্রে মেনুতে আরও কী আছে</h3>
+  <p>ট্রে আইকনে ডান-ক্লিক করলে: Start Voice Typing, Mic Options (Microphone /
+  Recognition language / Test microphone…), Typing Mode (Bangla, English,
+  Type Bangla in other apps, On-screen keyboard), Typing Options (সব সাজেশন
+  সুইচ, Auto Correction, Pin, language preference, shortcut, layout JSON,
+  recent words, Start with Windows), Word Manager, Options (Settings, Theme,
+  Encoding Converter, layout editor), AI tools, About, Help, Restart ও Exit।</p>
+</div>
+
+<!-- ====================================================== 11. TROUBLESHOOT -->
+<div class="page">
+  <div class="chapter-head">
+    <div class="chapter-num">১১</div>
+    <div>
+      <h2>সমস্যা সমাধান</h2>
+      <div class="sub">যে সমস্যাগুলো সবচেয়ে বেশি আসে, আর তার সমাধান</div>
+    </div>
+  </div>
+
+  <table>
+    <tr><th style="width:36%">সমস্যা</th><th>সমাধান</th></tr>
+    <tr><td>Windows "Unknown publisher" বা SmartScreen দেখাচ্ছে</td>
+        <td><b>More info → Run anyway</b>। অ্যাপটি unsigned, তবে ওপেন সোর্স — কোড নিজেও
+        যাচাই করে বিল্ড করতে পারেন।</td></tr>
+    <tr><td>অন-স্ক্রিন কিবোর্ড দেখা যাচ্ছে না</td>
+        <td><span class="kbd">Ctrl</span>+<span class="kbd">Alt</span>+<span class="kbd">O</span>
+        চাপুন, অথবা ট্রে আইকন → Restore top bar → কিবোর্ড আইকন।</td></tr>
+    <tr><td>অন্য অ্যাপে বাংলা আসছে না</td>
+        <td>টপ বারে <b>বাংলা</b> মোড + টাইপিং ক্যাপচার চালু আছে কিনা দেখুন
+        (Ctrl+Alt+K)। Ctrl+Alt+X চেপে বন্ধ হয়েছিল কিনা দেখুন।</td></tr>
+    <tr><td>মাইক কিছু শুনছে না</td>
+        <td>টপ বারের মাইকে ডান-ক্লিক → Test microphone…; সঠিক ডিভাইস বাছুন।
+        Windows Settings → Privacy → Microphone-এ অ্যাপের অনুমতি দিন।</td></tr>
+    <tr><td>ভয়েসে 401 / 403</td>
+        <td>key ভুল, বাতিল বা কপি করতে ভুল হয়েছে। নতুন key বানিয়ে আবার বসান;
+        key-এর আগে-পরে স্পেস যেন না থাকে।</td></tr>
+    <tr><td>ভয়েসে 429 / কোটা শেষ</td>
+        <td>অ্যাপ নিজেই ফ্রি সার্ভিসে নেমে যাবে। কবে ফিরবে তা Settings → Speech to
+        Text-এ উপরে দেখা যায়। তাড়া থাকলে অন্য সার্ভিসে key দিয়ে বদলান।</td></tr>
+    <tr><td>Google Cloud-এ 403</td>
+        <td>Speech-to-Text API enable আছে কিনা এবং Billing চালু কিনা দেখুন।
+        API key-তে Application restrictions দিলে <b>None</b> রাখুন।</td></tr>
+    <tr><td>Groq-এ "error code: 1010"</td>
+        <td>পুরোনো সংস্করণে Cloudflare আটকাত। 1.0.0 বিল্ডে ঠিক করা আছে — সর্বশেষ
+        বিল্ড ব্যবহার করুন।</td></tr>
+    <tr><td>সাজেশন উইন্ডো বিরক্ত করছে</td>
+        <td>টপ বারের কলম বাটনে ক্লিক করে সাময়িক থামান, অথবা Settings → General-এ
+        Pin/সাজেশন বন্ধ করুন।</td></tr>
+    <tr><td>সেটিংসে মান নিজে থেকে বদলে যাচ্ছে</td>
+        <td>এখন মাউস-হুইল আটকানো — কন্ট্রোলে ক্লিক করার পরেই চাকা কাজ করে।
+        সর্বশেষ বিল্ডে ঠিক করা আছে।</td></tr>
+    <tr><td>Sarvam-এ key কাজ করছে না</td>
+        <td>অ্যাপ <i>saaras:v4</i> দিয়ে চেষ্টা করে, না হলে <i>saarika:v2.5</i>-এ
+        নেমে আসে। তবু না হলে key/ক্রেডিট যাচাই করুন।</td></tr>
+    <tr><td>ফন্ট ভেঙে দেখাচ্ছে</td>
+        <td>কিবোর্ডের ফন্ট <b>Noto Sans Bengali</b>-তে নির্ধারিত। ভেঙে দেখালে Windows-এ
+        ফন্টটি ইনস্টল করুন (ইনস্টলের সময় সাথেই আসে) অথবা সর্বশেষ বিল্ড ব্যবহার করুন।</td></tr>
+  </table>
+
+  <h3>লগ ফাইল</h3>
+  <p>কিছু অস্বাভাবিক হলে <span style="font-family:Consolas,monospace">data\mk71.log</span>
+  ফাইলে বিস্তারিত থাকে (পোর্টেবলে অ্যাপের পাশে, ইনস্টলে
+  <span style="font-family:Consolas,monospace">%APPDATA%\MK-71 Keyboard\</span>)।
+  বাগ রিপোর্টের সাথে এই ফাইলটি দিলে দ্রুত সমাধান হয়।</p>
+</div>
+
+<!-- ==================================================== 12. PRIVACY -->
+<div class="page">
+  <div class="chapter-head">
+    <div class="chapter-num">১২</div>
+    <div>
+      <h2>প্রাইভেসি, ব্যাকআপ ও যোগাযোগ</h2>
+      <div class="sub">আপনার ডেটা কোথায় থাকে, আর কীভাবে রক্ষা করবেন</div>
+    </div>
+  </div>
+
+  <h3>আপনার ডেটা</h3>
+  <ul>
+    <li>কোনো টেলিমেট্রি, অ্যাকাউন্ট বা ক্লাউড সিঙ্ক নেই।</li>
+    <li>টাইপ করা অক্ষর আপনার কম্পিউটারেই বাংলায় রূপান্তরিত হয় — কোথাও লগ হয় না।</li>
+    <li>অডিও শুধু আপনি যে ভয়েস সার্ভিস বেছেছেন সেখানেই যায়; অন্য কোথাও নয়।</li>
+    <li>API key, সেটিংস ও শব্দভাণ্ডার থাকে <span style="font-family:Consolas,monospace">data\mk71.db</span>-তে
+        (পোর্টেবল) বা <span style="font-family:Consolas,monospace">%APPDATA%\MK-71 Keyboard\</span>-এ
+        (ইনস্টলার)। key শুধু আপনার নিজের মেশিনে।</li>
+    <li>AI tools শুধু আপনি <b>Run</b> চাপলেই লেখা সার্ভারে পাঠায়।</li>
+  </ul>
+
+  <h3>ব্যাকআপ ও স্থানান্তর</h3>
+  <ol class="steps">
+    <li>অ্যাপ বন্ধ করুন (ট্রে → Exit)।</li>
+    <li>পুরো <span style="font-family:Consolas,monospace">data</span> ফোল্ডারটি কপি করে
+        নিরাপদ জায়গায় রাখুন — এতে সেটিংস, শব্দ ও key সবই আছে।</li>
+    <li>নতুন পিসিতে পোর্টেবল ফোল্ডারটি নিয়ে সেই <span style="font-family:Consolas,monospace">data</span>
+        ফোল্ডারটি বসিয়ে দিন — সব সেটিংস ফিরে আসবে।</li>
+    <li>key হারালে আবার সার্ভিসের সাইট থেকে নতুন key বানাতে হবে; তাই key আলাদা করে
+        কোথাও নিরাপদে লিখে রাখুন।</li>
+  </ol>
+
+  <h3>সিস্টেম চাহিদা</h3>
+  <table>
+    <tr><th style="width:34%">বিষয়</th><th>প্রয়োজন</th></tr>
+    <tr><td>উইন্ডোজ</td><td>7 SP1 / 8.1 / 10 / 11 (৩২ বা ৬৪-বিট)</td></tr>
+    <tr><td>উইন্ডোজ ৭/৮.১-এ অতিরিক্ত</td><td>Visual C++ 2015–2019 runtime + KB2999226</td></tr>
+    <tr><td>ডিস্ক</td><td>প্রায় ২৫০ MB</td></tr>
+    <tr><td>ইন্টারনেট</td><td>শুধু ভয়েস টাইপিং ও AI-এর জন্য</td></tr>
+    <tr><td>মাইক্রোফোন</td><td>ভয়েস টাইপিংয়ের জন্য (যেকোনো ইনপুট ডিভাইস)</td></tr>
+  </table>
+
+  <h3>সোর্স ও লাইসেন্স</h3>
+  <p>MK-71 ওপেন সোর্স এবং <b>GNU GPL v3.0</b>-এ প্রকাশিত। কোড দেখতে, নিজে বিল্ড
+  করতে বা পরিবর্তন করতে চাইলে GitHub রেপো ব্যবহার করুন। ফন্ট: Noto Sans Bengali
+  (SIL Open Font License 1.1)।</p>
+
+  <h3>যোগাযোগ</h3>
+  <table>
+    <tr><th style="width:28%">মাধ্যম</th><th>ঠিকানা</th></tr>
+    <tr><td>GitHub</td><td><a href="https://github.com/Mk4u-Me">github.com/Mk4u-Me</a></td></tr>
+    <tr><td>Telegram</td><td><a href="https://t.me/mk4u71">t.me/mk4u71</a></td></tr>
+    <tr><td>Email</td><td><a href="mailto:Mk4ume@proton.me">Mk4ume@proton.me</a></td></tr>
+  </table>
+
+  <div class="callout tip">
+    <b>সাহায্য দরকার?</b> প্রথমে এই গাইডের সংশ্লিষ্ট অধ্যায় দেখুন, তারপর Settings-এর
+    <b>?</b> বাটন থেকে Telegram-এ প্রশ্ন করুন। সমস্যার বিবরণ, উইন্ডোজ সংস্করণ ও
+    <span style="font-family:Consolas,monospace">mk71.log</span>-এর শেষ অংশ দিলে
+    দ্রুত উত্তর পাবেন।
+  </div>
+
+  <div class="footer-note">
+    MK-71 Keyboard · ব্যবহার নির্দেশিকা · সংস্করণ 1.0.8 · Windows 7–11 · ৩২ ও ৬৪-বিট<br>
+    এই পিডিএফটি প্রতিটি বিল্ডের সাথে দেওয়া হয়েছে।
+  </div>
+</div>
+
+</body>
+</html>
