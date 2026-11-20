@@ -97,6 +97,7 @@ img { max-width: 100%; height: auto; }
   text-decoration: none;
 }
 .nav-links a:hover { background: rgba(6, 136, 254, .12); color: var(--blue-deep); }
+.nav-links a.active { background: rgba(6, 136, 254, .12); color: var(--blue-deep); }
 .socials { display: flex; align-items: center; gap: 1px; margin-left: 6px; }
 .socials a { padding: 7px; }
 .socials svg { width: 20px; height: 20px; display: block; fill: currentColor; }
