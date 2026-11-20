@@ -363,13 +363,25 @@ body.about {
   box-shadow: 0 18px 46px rgba(6, 136, 254, .12);
 }
 .about-photo {
+  position: relative;
+  align-self: stretch;
+  min-height: 240px;
   border: 2px solid #b9dcff;
   border-radius: 16px;
   overflow: hidden;
   background: var(--softblue);
   box-shadow: 0 10px 24px rgba(6, 136, 254, .16);
 }
-.about-photo img { display: block; width: 100%; height: auto; object-fit: cover; }
+/* The photo is laid over the frame instead of setting its height, so it ends
+   level with the text beside it instead of running past the last line. */
+.about-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
 .about-body h2 { margin: 2px 0 10px; font-size: 1.65rem; line-height: 1.35; color: #0b2b6b; }
 .about-body h2 .hl { color: var(--blue); }
 .about-body h3 { margin: 18px 0 8px; font-size: 1.3rem; color: #0b2b6b; }
@@ -387,6 +399,7 @@ body.about {
   box-shadow: 0 2px 6px rgba(6, 136, 254, .14);
 }
 .mission {
+  align-self: start;
   padding: 16px 18px;
   border-radius: 16px;
   border: 1px solid #cfe4ff;
@@ -454,7 +467,7 @@ body.about {
   .about-head h1 { font-size: 2rem; }
   .about-head h1::before, .about-head h1::after { max-width: 48px; }
   .about-card { grid-template-columns: 1fr; padding: 18px; }
-  .about-photo { max-width: 260px; }
+  .about-photo { align-self: start; max-width: 260px; aspect-ratio: 3 / 4; }
   .about-body h2 { font-size: 1.45rem; }
   .thanks { flex-direction: column; align-items: flex-start; gap: 12px; }
   .sign { margin-left: 0; text-align: left; }
