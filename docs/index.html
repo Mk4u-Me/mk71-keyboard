@@ -2,6 +2,7 @@
 <html lang="bn">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.classList.add("lang-loading");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MK-71 Keyboard — বাংলা ও English ভয়েস টাইপিং কিবোর্ড (Windows) | Mk71 Keyboard</title>
 <meta name="description" content="MK-71 Keyboard (Mk71 Keyboard / mk71 keyboard) — Windows 7–11-এর জন্য বাংলা ও English অন-স্ক্রিন কিবোর্ড। Avro, বিজয় ৫২, Probhat, Unibijoy লেআউট, এনকোডিং কনভার্টার, ভয়েস টাইপিং ও ঐচ্ছিক AI প্রুফরিডিং। ফ্রি ডাউনলোড (64-bit ও 32-bit)।">
@@ -124,7 +125,7 @@
         <button class="btn btn-installer" type="button" data-open-modal>⬇️ <strong>Portable</strong></button>
         <a class="btn btn-blue" href="https://github.com/Mk4u-Me/mk71-keyboard/releases" target="_blank" rel="noopener">🐙 <strong>Archive</strong></a>
       </div>
-      <p class="mini">📖 <a href="MK-71%20Keyboard%20-%20User%20Guide.pdf" target="_blank" rel="noopener">বাংলা ইউজার গাইড (PDF)</a> · 🧭 <a href="download.html">ধাপে ধাপে ডাউনলোড গাইড</a></p>
+      <p class="mini" data-en="📖 <a href='MK-71%20Keyboard%20-%20User%20Guide.pdf' target='_blank' rel='noopener'>Bangla user guide (PDF)</a> · 🧭 <a href='download.html'>Step-by-step download guide</a>">📖 <a href="MK-71%20Keyboard%20-%20User%20Guide.pdf" target="_blank" rel="noopener">বাংলা ইউজার গাইড (PDF)</a> · 🧭 <a href="download.html">ধাপে ধাপে ডাউনলোড গাইড</a></p>
     </div>
   </section>
 
@@ -244,7 +245,7 @@
   <footer class="footer">
     Copyright © 2026 MK-71 Keyboard · GNU GPL v3.0
     <div class="links">
-      <a href="download.html">ডাউনলোড ও ইনস্টল</a>
+      <a href="download.html" data-en="Download &amp; install">ডাউনলোড ও ইনস্টল</a>
       <a href="https://github.com/Mk4u-Me/mk71-keyboard" target="_blank" rel="noopener">GitHub</a>
       <a href="https://t.me/mk4u71" target="_blank" rel="noopener">Telegram</a>
       <a href="mailto:Mk4ume@proton.me">Mk4ume@proton.me</a>
@@ -327,16 +328,36 @@
   ack.addEventListener('change', syncLinks);
   syncLinks();
 
+  // English is the page people land on; বাংলা is one click away. The text in
+  // the HTML stays Bangla for search results and for browsers without
+  // JavaScript, and this swaps it as the page loads.
   var langBtn = document.getElementById('langBtn');
-  var lang = 'bn';
-  langBtn.addEventListener('click', function () {
-    lang = lang === 'bn' ? 'en' : 'bn';
+  var lang = 'en';
+
+  function applyLanguage(next) {
+    lang = next === 'bn' ? 'bn' : 'en';
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-en]').forEach(function (el) {
       if (!el.dataset.bn) el.dataset.bn = el.innerHTML;
       el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.bn;
     });
     langBtn.textContent = lang === 'bn' ? 'English' : 'বাংলা';
+  }
+
+  function rememberedLanguage() {
+    try { return localStorage.getItem('mk71-lang'); } catch (e) { return null; }
+  }
+
+  try {
+    // A visitor who picked বাংলা stays in Bangla on the next visit.
+    applyLanguage(rememberedLanguage() === 'bn' ? 'bn' : 'en');
+  } finally {
+    document.documentElement.classList.remove('lang-loading');
+  }
+
+  langBtn.addEventListener('click', function () {
+    applyLanguage(lang === 'bn' ? 'en' : 'bn');
+    try { localStorage.setItem('mk71-lang', lang); } catch (e) {}
   });
 })();
 </script>

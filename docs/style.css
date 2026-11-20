@@ -33,6 +33,9 @@ body {
 }
 
 body.modal-open { overflow: hidden; }
+/* The page is Bangla in the HTML and is swapped to English as it loads:
+   hiding it for those few milliseconds stops the Bangla text flashing up. */
+html.lang-loading body { visibility: hidden; }
 a { color: #0b63ce; }
 img { max-width: 100%; height: auto; }
 
