@@ -239,7 +239,9 @@ code {
   padding: 1px 5px;
   font-size: 14px;
 }
-.shots img { width: 100%; border: 1px solid var(--line); border-radius: 10px; margin: 10px 0; }
+/* Screenshots are 2x captures: showing them at their own size keeps the text
+   sharp, where stretching them to the column width only added blur. */
+.shots img { display: block; width: auto; max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; margin: 12px auto; }
 
 /* ---------- modal ---------- */
 .modal {
