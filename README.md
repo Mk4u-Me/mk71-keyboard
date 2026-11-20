@@ -7,7 +7,7 @@ keypad, voice dictation and optional AI proofreading, in one small app.
 ![Platform](https://img.shields.io/badge/platform-Windows%207%20%7C%208.1%20%7C%2010%20%7C%2011-blue)
 ![Arch](https://img.shields.io/badge/build-x64%20%26%20x86-lightgrey)
 ![Free](https://img.shields.io/badge/price-free-brightgreen)
-![Version](https://img.shields.io/badge/version-1.0.6-brightgreen)
+![Version](https://img.shields.io/badge/version-1.0.7-brightgreen)
 
 **ওয়েবসাইট:** [mk4u-me.github.io/mk71-keyboard](https://mk4u-me.github.io/mk71-keyboard/)
 &nbsp;·&nbsp; **ডাউনলোড গাইড:** [download.html](https://mk4u-me.github.io/mk71-keyboard/download.html)
