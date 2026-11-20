@@ -24,7 +24,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 96px; }
 
 body {
   margin: 0;
-  padding-top: 0;
+  padding-top: 76px;
   color: var(--ink);
   background: #fff;
   font-family: "Poppins", "Nirmala UI", "Noto Sans Bengali", "Segoe UI", sans-serif;
@@ -43,12 +43,8 @@ img { max-width: 100%; height: auto; }
 
 /* ---------- navbar ---------- */
 .nav {
-  /* Sticky, not fixed: the app's slim strip sits above the header at the top
-     of the page and the header still pins itself once that strip scrolls by. */
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: fixed;
+  inset: 0 0 auto 0;
   z-index: 60;
   background: var(--nav-bg);
   box-shadow: 0 0 5px rgba(0, 4, 255, .3);
@@ -244,10 +240,6 @@ code {
   padding: 1px 5px;
   font-size: 14px;
 }
-/* The app's own slim strip, shown above the site header on the home page. */
-.topbar-shot { padding: 14px 16px 8px; text-align: center; }
-.topbar-shot img { display: inline-block; width: auto; max-width: 100%; height: auto; }
-
 /* Screenshots are 2x captures: showing them at their own size keeps the text
    sharp, where stretching them to the column width only added blur. */
 .shots img { display: block; width: auto; max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; margin: 12px auto; }
